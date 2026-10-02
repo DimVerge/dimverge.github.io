@@ -190,6 +190,18 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   transition:color .3s ease, transform .3s ease;
 }
 .entry:hover .entry-title{color:var(--accent);transform:translateX(6px)}
+.new-badge{
+  display:inline-block;
+  width:7px;height:7px;
+  background:var(--accent);
+  transform:rotate(45deg);
+  margin-left:.5em;vertical-align:4px;
+  animation:new-blink 1.4s ease-in-out infinite;
+}
+@keyframes new-blink{
+  0%,100%{opacity:1;transform:rotate(45deg) scale(1)}
+  50%{opacity:.2;transform:rotate(45deg) scale(.7)}
+}
 .entry-excerpt{
   font-size:13.5px;font-weight:300;color:var(--gray);
   line-height:1.75;margin-top:10px;max-width:46em;

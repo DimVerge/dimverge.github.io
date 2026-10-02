@@ -17,7 +17,7 @@
     <a class="entry entry--group" href="{{ .Permalink }}">
       <div>
         <div class="entry-meta"><span>{{ .Date.Format "2006.01.02" }}</span></div>
-        <div class="entry-title">{{ .Title }}</div>
+        <div class="entry-title">{{ .Title }}{{ if eq .Permalink $latest.Permalink }}<span class="new-badge" aria-label="新"></span>{{ end }}</div>
         {{ with .Params.excerpt }}<div class="entry-excerpt">{{ . }}</div>{{ end }}
       </div>
     </a>

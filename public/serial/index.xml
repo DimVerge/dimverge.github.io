@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>连载 on Dim Verge · 微隅</title>
-    <link>http://localhost:1313/serial/</link>
+    <link>https://dimverge.github.io/serial/</link>
     <description>Recent content in 连载 on Dim Verge · 微隅</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1313/serial/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dimverge.github.io/serial/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

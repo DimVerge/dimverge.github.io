@@ -1,4 +1,4 @@
+hugo.exe
+hugo server -D.txt
+.hugo_build.lock
 public/
-resources/
-.DS_Store
-*.log

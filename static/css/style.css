@@ -164,7 +164,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 }
 .list-label::after{content:"";flex:1;height:1px;background:var(--line)}
 .entry{
-  display:grid;grid-template-columns:3.2em 1fr;gap:20px;
+  display:grid;grid-template-columns:1fr;gap:20px;
   padding:34px 0;border-bottom:1px solid var(--line);
 }
 .entry:first-of-type{padding-top:8px}
@@ -195,7 +195,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   line-height:1.75;margin-top:10px;max-width:46em;
 }
 /* 全部视图 · 紧凑索引列表（无预览） */
-.entry--compact{grid-template-columns:2.6em 1fr;gap:14px;padding:18px 0}
+.entry--compact{grid-template-columns:1fr;gap:14px;padding:18px 0}
 .entry--compact .entry-meta{margin-bottom:6px;font-size:10.5px;letter-spacing:.16em;gap:10px}
 .entry--compact .entry-title{font-size:16px;line-height:1.5}
 

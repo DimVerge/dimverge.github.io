@@ -3,7 +3,6 @@
   <div class="list-label">全部 · ALL · {{ printf "%02d" (len $all) }} 篇</div>
   {{ range $all }}
     <a class="entry entry--compact" href="{{ .Permalink }}">
-      <span class="entry-no">{{ .Params.no }}</span>
       <div>
         <div class="entry-meta"><span class="entry-tag">{{ if eq .Section "serial" }}连载{{ else }}随笔{{ end }}</span><span>{{ .Date.Format "2006.01.02" }}</span></div>
         <div class="entry-title">{{ if .Params.work }}{{ .Params.work }} · {{ end }}{{ .Title }}</div>
@@ -15,7 +14,6 @@
   <div class="list-label">随笔 · ESSAYS · {{ printf "%02d" (len $essays) }} 篇</div>
   {{ range $essays }}
     <a class="entry" href="{{ .Permalink }}">
-      <span class="entry-no">{{ .Params.no }}</span>
       <div>
         <div class="entry-meta"><span class="entry-tag">随笔</span><span>{{ .Date.Format "2006.01.02" }}</span></div>
         <div class="entry-title">{{ .Title }}</div>

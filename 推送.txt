@@ -1,0 +1,24 @@
+#1.检查本地更改文件
+git status
+
+#2.推送
+git add .
+git commit -m "add hugo deploy workflow"
+git push
+
+-----------------------------------------------
+ git add -A 会把新文章、以及所有改动一起加入。也可以只加文章目录：
+
+git add content/
+git commit -m "add new post"
+git push
+
+## 说明
+
+- 新文章一般是 `content/` 下的 `.md` 文件，直接提交即可。
+- 推完等 **Actions** 里 "Deploy Hugo site to Pages" 变绿勾，网站就更新了（通常 1~2 分钟）。
+- 如果只改了文章内容，不想写提交信息，`git commit -m "update"` 也行，但建议写清标题方便回看。
+
+> 
+> 提示：本地想看效果就先 `hugo server` 预览；确定满意再 push。本地 `hugo` 生成不生成 `public/` 都无所谓，云端会重新构建。
+

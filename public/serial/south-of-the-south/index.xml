@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>南方以南 on Dim Verge · 微隅</title>
-    <link>https://dimverge.github.io/serial/south-of-the-south/</link>
+    <link>http://localhost:1313/serial/south-of-the-south/</link>
     <description>Recent content in 南方以南 on Dim Verge · 微隅</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate>Wed, 02 Sep 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://dimverge.github.io/serial/south-of-the-south/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/serial/south-of-the-south/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>序章 抵达</title>
-      <link>https://dimverge.github.io/serial/south-of-the-south/prologue-arrival/</link>
+      <link>http://localhost:1313/serial/south-of-the-south/prologue-arrival/</link>
       <pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://dimverge.github.io/serial/south-of-the-south/prologue-arrival/</guid>
+      <guid>http://localhost:1313/serial/south-of-the-south/prologue-arrival/</guid>
       <description>&lt;p&gt;列车在清晨抵达南方以南。站台上没有人，只有一只猫卧在长椅边，眯着眼，仿佛在等一班永远不会来的车。&lt;/p&gt;&#xA;&lt;p&gt;她拖着行李箱走出车站，空气是温的，带着某种植物潮湿的气息。地图上标注的终点已经到达，可她心里清楚，真正的旅程，此刻才刚刚开始。&lt;/p&gt;</description>
     </item>
   </channel>

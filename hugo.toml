@@ -14,3 +14,4 @@ disableKinds = ["taxonomy", "term"]
       autoHeadingID = true
     [markup.goldmark.renderer]
       unsafe = false
+

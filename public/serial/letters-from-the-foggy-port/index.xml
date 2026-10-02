@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>雾港来信 on Dim Verge · 微隅</title>
-    <link>https://dimverge.github.io/serial/letters-from-the-foggy-port/</link>
+    <link>http://localhost:1313/serial/letters-from-the-foggy-port/</link>
     <description>Recent content in 雾港来信 on Dim Verge · 微隅</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate>Tue, 29 Sep 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://dimverge.github.io/serial/letters-from-the-foggy-port/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/serial/letters-from-the-foggy-port/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>第一章 潮声</title>
-      <link>https://dimverge.github.io/serial/letters-from-the-foggy-port/ch-1-the-tide/</link>
+      <link>http://localhost:1313/serial/letters-from-the-foggy-port/ch-1-the-tide/</link>
       <pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://dimverge.github.io/serial/letters-from-the-foggy-port/ch-1-the-tide/</guid>
+      <guid>http://localhost:1313/serial/letters-from-the-foggy-port/ch-1-the-tide/</guid>
       <description>&lt;p&gt;雾从海面漫上来的时候，阿禾正坐在码头的尽头数灯。对岸的灯一盏一盏地亮，又一盏一盏地暗下去，像某种只有海才懂的暗号。她数到第七盏，风就停了。&lt;/p&gt;&#xA;&lt;p&gt;信是在黄昏时分到的。邮差把一只浸过海水的牛皮纸信封放在她手边，没有贴邮票，也没有寄件人的名字，只在封口处压了一枚很旧的蜡印——隐约能看出是一盏灯的形状。&lt;/p&gt;&#xA;&lt;p&gt;她把信读了两遍，然后折好，放进外套内侧的口袋。雾更浓了，岸边的灯只剩下模糊的光晕，像远方的某个人，隔着很长的距离，仍然固执地亮着。&lt;/p&gt;&#xA;&lt;p&gt;阿禾想，也许这就是她一直等的东西。她不知道自己为什么会这么想，只是当手指触到那枚蜡印时，心口忽然安静下来，像潮水退去后的沙滩。&lt;/p&gt;&#xA;&lt;p&gt;天色完全暗下去之前，她起身往回走。身后的雾依旧拢着海面，码头尽头的第七盏灯，不知什么时候，也灭了。&lt;/p&gt;</description>
     </item>
     <item>
       <title>第二章 旧码头</title>
-      <link>https://dimverge.github.io/serial/letters-from-the-foggy-port/ch-2-the-old-pier/</link>
+      <link>http://localhost:1313/serial/letters-from-the-foggy-port/ch-2-the-old-pier/</link>
       <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://dimverge.github.io/serial/letters-from-the-foggy-port/ch-2-the-old-pier/</guid>
+      <guid>http://localhost:1313/serial/letters-from-the-foggy-port/ch-2-the-old-pier/</guid>
       <description>&lt;p&gt;旧码头比想象中还要旧。栈桥的木板上钉着生锈的铁钉，潮水涨上来又退下去，留下一道深色的水痕，像时间的齿痕。&lt;/p&gt;&#xA;&lt;p&gt;阿禾在第三根桥柱下找到了那个铁盒。盒盖锈住了，她用指甲一点点撬开，里面躺着一本薄薄的册子，封面上只写了一行字——「给数到第七盏灯的人。」&lt;/p&gt;</description>
     </item>
   </channel>

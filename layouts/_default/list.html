@@ -1,0 +1,27 @@
+{{ define "main" }}
+<main class="shell">
+  <header class="site-head">
+    {{ partial "site-head.html" . }}
+  </header>
+
+  <section class="masthead">
+    <span class="mast-label">{{ .Site.Params.volume }}</span>
+    <div class="mast-rule"></div>
+  </section>
+
+  <div class="page-grid">
+    {{ partial "deco.html" . }}
+
+    <main class="list">
+      {{ if and (eq .Section "serial") (not .Parent.IsHome) }}
+        {{/* ---- 单部连载的作品页（/serial/<work>/） ---- */}}
+        {{ partial "work-group.html" (dict "work" .) }}
+      {{ else }}
+        {{ partial "list-content.html" . }}
+      {{ end }}
+    </main>
+  </div>
+
+  {{ partial "site-foot.html" . }}
+</main>
+{{ end }}

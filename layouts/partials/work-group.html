@@ -1,0 +1,25 @@
+{{ $w := .work }}
+{{ $chs := sort $w.RegularPages ".Params.chIndex" "asc" }}
+{{ $latest := index (sort $w.RegularPages ".Date" "desc") 0 }}
+{{ $count := len $chs }}
+<section class="work-group">
+  <header class="work-head">
+    <div class="work-title">《{{ $w.Title }}》<span class="work-en">{{ $w.Params.workEn }}</span></div>
+    <div class="work-meta">
+      <span class="work-status"><i></i>连载中</span>
+      <span class="work-sep">·</span>
+      <span>已更新 {{ printf "%02d" $count }} 章</span>
+      <span class="work-sep">·</span>
+      <span>最新 {{ $latest.Date.Format "2006.01.02" }}</span>
+    </div>
+  </header>
+  {{ range $chs }}
+    <a class="entry entry--group" href="{{ .Permalink }}">
+      <div>
+        <div class="entry-meta"><span>{{ .Date.Format "2006.01.02" }}</span></div>
+        <div class="entry-title">{{ .Title }}</div>
+        {{ with .Params.excerpt }}<div class="entry-excerpt">{{ . }}</div>{{ end }}
+      </div>
+    </a>
+  {{ end }}
+</section>

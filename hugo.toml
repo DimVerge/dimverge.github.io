@@ -1,0 +1,16 @@
+baseURL = "/"
+languageCode = "zh-CN"
+title = "Dim Verge · 微隅"
+enableRobotsTXT = false
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Dim Verge · 微隅 —— 安静地写，慢慢地写。"
+  volume = "Vol. 01 · Autumn 2026"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      autoHeadingID = true
+    [markup.goldmark.renderer]
+      unsafe = false

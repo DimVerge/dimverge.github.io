@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dim Verge · 微隅</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%231D1D1F' stroke-width='1.6'/%3E%3Ccircle cx='23' cy='23' r='3.2' fill='%232F4E5E'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;600&display=swap">
+<style>
+/* ============================================================
+   Dim Verge · 微隅 —— 个人写作网站
+   视觉体系：Apple 式现代主义极简 / 冷灰底 / 深炭黑 / 克制单色
+   ============================================================ */
+:root{
+  --bg:        #F5F5F7;
+  --ink:       #1D1D1F;
+  --gray:      #86868B;
+  --faint:     #AEAEB2;
+  --line:      #D8D8DC;
+  --ghost:     #E5E5E9;
+  --accent:    #2F4E5E;               /* 深海蓝，唯一强调，克制使用 */
+  --accent-soft: rgba(47,78,94,.10);
+  --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                "Helvetica Neue", "PingFang SC", "HarmonyOS Sans SC",
+                "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --serif:     Georgia, "Times New Roman", "Songti SC", "STSong", serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* 隐藏滚动条（仍可滚动），避免视觉干扰 */
+html{
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+html::-webkit-scrollbar{display:none;width:0;height:0}
+html{scroll-behavior:auto}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-stack);
+  font-weight:400;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+::selection{background:var(--accent-soft);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:1px solid var(--accent);outline-offset:4px;border-radius:2px}
+
+/* ---------- 视图切换 ---------- */
+.view{display:none}
+.view.active{display:block;animation:viewIn .7s ease both}
+@keyframes viewIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){
+  .view.active{animation:none}
+  *{transition:none!important;animation:none!important}
+}
+
+/* ============================================================
+   视图一 · 门户 —— 只出现网站名称，靠排版呈现设计感
+   ============================================================ */
+.gate{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;
+  padding:clamp(48px,10vh,120px) 24px;
+}
+.gate-en{
+  font-size:11px;
+  letter-spacing:.52em;
+  color:var(--gray);
+  text-transform:uppercase;
+  margin-bottom:clamp(28px,5vh,52px);
+  padding-left:.52em;                 /* 抵消末字符的字距，保持视觉居中 */
+  transition:letter-spacing .6s ease, color .6s ease;
+  font-weight:500;
+}
+.gate:hover .gate-en{letter-spacing:.68em;color:var(--ink)}
+.gate-cn{
+  font-size:clamp(72px,15vw,168px);
+  font-weight:300;
+  letter-spacing:.08em;
+  line-height:1;
+  color:var(--ink);
+  padding-left:.08em;
+  user-select:none;
+}
+.gate-enter{
+  margin-top:clamp(48px,9vh,88px);
+  font-size:11px;
+  letter-spacing:.38em;
+  color:var(--faint);
+  padding-left:.38em;
+  text-transform:uppercase;
+  transition:color .5s ease;
+}
+.gate:hover .gate-enter{color:var(--accent)}
+
+/* ============================================================
+   通用 · 页眉 / 页脚
+   ============================================================ */
+.site-head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:clamp(28px,4vw,56px) clamp(24px,5vw,72px) 0;
+}
+.brand{font-size:14px;font-weight:500;letter-spacing:.14em}
+.brand .dot{color:var(--gray);margin:0 .4em}
+.head-right{display:flex;align-items:baseline;gap:clamp(20px,3vw,40px)}
+.filters{display:flex;gap:clamp(18px,3vw,36px)}
+.filter{
+  font-size:12px;letter-spacing:.16em;color:var(--gray);
+  padding-bottom:8px;position:relative;transition:color .3s ease;
+}
+.filter:hover{color:var(--ink)}
+.filter.active{color:var(--ink)}
+.filter.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);
+}
+.back{
+  font-size:12px;letter-spacing:.16em;color:var(--gray);
+  padding-bottom:8px;transition:color .3s ease;
+}
+.back:hover{color:var(--accent)}
+
+.masthead{
+  max-width:1180px;margin:0 auto;
+  padding:clamp(64px,9vh,104px) clamp(24px,5vw,72px) 0;
+}
+.mast-label{
+  display:block;
+  font-size:11px;letter-spacing:.44em;color:var(--gray);
+  text-transform:uppercase;font-weight:400;
+}
+.mast-rule{height:1px;background:var(--line);margin-top:20px}
+
+/* ============================================================
+   主体 · 左侧文字排版装饰 + 右侧文章列表 / 文章正文
+   ============================================================ */
+.page-grid{
+  display:grid;
+  grid-template-columns:minmax(180px,1fr) 2.3fr;
+  gap:clamp(36px,5vw,96px);
+  max-width:1180px;margin:0 auto;
+  padding:clamp(48px,7vh,72px) clamp(24px,5vw,72px) clamp(96px,14vh,160px);
+  align-items:start;
+}
+.deco{
+  display:flex;flex-direction:column;
+  border-right:1px solid var(--line);
+  padding-right:clamp(24px,3vw,48px);
+  position:sticky;top:48px;
+  min-height:calc(100vh - 180px);
+}
+.deco-chars{line-height:1.08;margin-bottom:clamp(36px,6vh,56px)}
+.deco-chars span{
+  display:block;
+  font-size:clamp(48px,6vw,84px);
+  font-weight:300;color:var(--ghost);
+  letter-spacing:.04em;
+}
+.deco-line{width:1px;height:clamp(48px,7vh,72px);background:var(--line);margin:0 0 clamp(32px,5vh,48px)}
+.deco-en{
+  writing-mode:vertical-rl;
+  font-size:10px;letter-spacing:.62em;color:var(--gray);
+  text-transform:uppercase;
+  height:clamp(180px,26vh,260px);
+}
+.deco-note{
+  margin-top:auto;padding-top:64px;
+  font-size:12px;line-height:1.9;color:var(--faint);letter-spacing:.18em;
+}
+.deco-note em{font-family:var(--serif);font-style:italic;letter-spacing:.06em;font-size:11px;color:var(--gray)}
+
+/* ---------- 文章列表 ---------- */
+.list-label{
+  display:flex;align-items:center;gap:18px;
+  font-size:11px;letter-spacing:.36em;color:var(--gray);
+  text-transform:uppercase;margin-bottom:clamp(28px,4vh,40px);
+}
+.list-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.entry{
+  display:grid;grid-template-columns:3.2em 1fr;gap:20px;
+  padding:34px 0;border-bottom:1px solid var(--line);
+}
+.entry:first-of-type{padding-top:8px}
+.entry:last-child{border-bottom:none}
+.entry-no{
+  font-size:11px;color:var(--faint);letter-spacing:.14em;
+  padding-top:7px;font-variant-numeric:tabular-nums;
+  transition:color .3s ease;
+}
+.entry:hover .entry-no{color:var(--accent)}
+.entry-meta{
+  display:flex;align-items:center;gap:14px;
+  font-size:11px;letter-spacing:.2em;color:var(--gray);
+  margin-bottom:12px;
+}
+.entry-tag::before{
+  content:"";display:inline-block;width:4px;height:4px;border-radius:1px;
+  background:var(--accent);margin-right:9px;vertical-align:2px;
+}
+.entry-title{
+  font-size:clamp(18px,2.1vw,23px);
+  font-weight:500;letter-spacing:.01em;line-height:1.55;
+  transition:color .3s ease, transform .3s ease;
+}
+.entry:hover .entry-title{color:var(--accent);transform:translateX(6px)}
+.entry-excerpt{
+  font-size:13.5px;font-weight:300;color:var(--gray);
+  line-height:1.75;margin-top:10px;max-width:46em;
+}
+/* 全部视图 · 紧凑索引列表（无预览） */
+.entry--compact{grid-template-columns:2.6em 1fr;gap:14px;padding:18px 0}
+.entry--compact .entry-meta{margin-bottom:6px;font-size:10.5px;letter-spacing:.16em;gap:10px}
+.entry--compact .entry-title{font-size:16px;line-height:1.5}
+
+/* ---------- 文章阅读页 ---------- */
+.article{max-width:660px}
+.article-meta{
+  font-size:11px;letter-spacing:.24em;color:var(--gray);
+  display:flex;align-items:center;gap:14px;margin-bottom:22px;
+}
+.article-meta .entry-tag::before{width:4px;height:4px;border-radius:1px}
+.article-title{
+  font-size:clamp(26px,3.2vw,34px);
+  font-weight:500;letter-spacing:.02em;line-height:1.5;
+}
+.article-en{
+  margin-top:14px;
+  font-family:var(--serif);font-style:italic;font-size:14px;color:var(--faint);
+  letter-spacing:.04em;
+}
+.article-crumb{font-weight:500;color:var(--ink);letter-spacing:.1em}
+.article-sub{
+  margin-top:14px;
+  font-size:15px;font-weight:300;color:var(--gray);
+  line-height:1.8;letter-spacing:.02em;
+}
+.article-rule{width:48px;height:1px;background:var(--accent);margin:30px 0 44px}
+.article-body p{
+  font-size:15.5px;font-weight:300;line-height:1.85;color:#333336;
+  margin-bottom:1.4em;max-width:40em;
+  text-indent:2em;   /* 段首缩进两字 */
+}
+.article-body .epigraph{
+  font-family:var(--serif);
+  font-size:16px;font-weight:400;color:var(--ink);
+  line-height:2;letter-spacing:.06em;
+  margin:0 0 1.8em;
+  padding-left:2em;            /* 空两格显示 */
+  max-width:40em;
+}
+.article-body .epigraph::before{
+  content:"——";
+  letter-spacing:.05em;color:var(--gray);
+  margin-right:.5em;
+}
+.article-body h2{
+  font-size:17px;font-weight:500;color:var(--ink);
+  letter-spacing:.02em;line-height:1.6;
+  margin:2.6em 0 .9em;
+}
+.article-body h3{
+  font-size:15.5px;font-weight:500;color:var(--ink);
+  letter-spacing:.02em;line-height:1.6;margin:2em 0 .8em;
+}
+.article-body blockquote{
+  margin:1.7em 0 1.7em 1.1em;
+  padding-left:1.1em;
+  border-left:1px solid var(--line);
+  font-size:14.5px;font-weight:300;color:var(--gray);
+  line-height:1.95;letter-spacing:.02em;
+}
+.article-body strong{font-weight:500;color:var(--ink)}
+.article-body em{font-style:italic;color:var(--gray)}
+.article-body code{
+  font-family:ui-monospace,SFMono-Regular,Consolas,"Courier New",monospace;
+  font-size:13px;color:var(--ink);background:#E9E9EC;
+  padding:.12em .5em;border-radius:3px;
+}
+.article-body pre{
+  margin:1.6em 0 2em;
+  padding:1.05em 1.15em;
+  background:#ECECEF;
+  border:1px solid var(--line);
+  border-radius:4px;
+  overflow-x:auto;
+}
+.article-body pre code{
+  display:block;
+  background:none;padding:0;
+  font-family:ui-monospace,SFMono-Regular,Consolas,"Courier New",monospace;
+  font-size:12.5px;line-height:1.9;color:var(--ink);
+  white-space:pre;
+}
+.article-body ul{list-style:none;margin:0 0 1.5em;padding:0;max-width:40em}
+.article-body ul li{
+  position:relative;padding-left:1.25em;margin-bottom:.55em;
+  font-size:15px;font-weight:300;line-height:1.85;color:#333336;
+}
+.article-body ul li::before{
+  content:"";position:absolute;left:.15em;top:.72em;
+  width:4px;height:4px;border-radius:1px;background:var(--accent);
+}
+.article-body ol{margin:0 0 1.5em;padding-left:1.4em;max-width:40em}
+.article-body ol li{
+  font-size:15px;font-weight:300;line-height:1.85;color:#333336;
+  margin-bottom:.55em;padding-left:.35em;
+}
+.article-body ol li::marker{color:var(--gray);font-weight:400}
+.article-body hr{
+  border:none;height:1px;width:56px;background:var(--line);
+  margin:2.6em auto;
+}
+.article-end{
+  text-align:center;color:var(--faint);
+  font-size:11px;letter-spacing:.5em;margin:72px 0 0;padding-left:.5em;
+}
+.article-nav{
+  display:flex;justify-content:space-between;gap:24px;
+  margin-top:72px;padding-top:36px;border-top:1px solid var(--line);
+}
+.article-nav a{
+  font-size:12.5px;letter-spacing:.14em;color:var(--gray);
+  transition:color .3s ease;
+  max-width:46%;
+}
+.article-nav a:hover{color:var(--accent)}
+.article-nav .next{text-align:right}
+
+/* ---------- 页脚 ---------- */
+.site-foot{
+  text-align:center;
+  padding:0 24px clamp(48px,8vh,80px);
+  color:var(--faint);
+}
+.site-foot .en{font-size:10px;letter-spacing:.4em;text-transform:uppercase}
+.site-foot .cn{font-size:11px;letter-spacing:.3em;margin-top:12px}
+.site-foot .copy{margin-top:20px;font-size:10px;letter-spacing:.22em}
+
+/* ---------- 连载 · 按小说分组 ---------- */
+.work-group{margin-bottom:clamp(28px,5vh,42px)}
+.work-group:last-child{margin-bottom:0}
+.work-head{padding:10px 0 22px;border-bottom:1px solid var(--line);margin-bottom:2px}
+.work-title{
+  display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
+  font-size:clamp(19px,2.2vw,22px);font-weight:600;letter-spacing:.04em;
+}
+.work-en{
+  font-family:var(--serif);font-style:italic;
+  font-size:13px;font-weight:400;color:var(--gray);letter-spacing:.03em;
+}
+.work-meta{
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px;
+  margin-top:10px;font-size:10.5px;letter-spacing:.18em;color:var(--faint);
+}
+.work-status{color:var(--gray)}
+.work-status i{
+  display:inline-block;width:4px;height:4px;border-radius:1px;
+  background:var(--accent);margin-right:8px;vertical-align:2px;
+}
+.work-sep{color:var(--line)}
+.entry--group{grid-template-columns:1fr;gap:6px;padding:12px 0;border-bottom:none}
+.entry--group .entry-meta{margin-bottom:6px;font-size:10.5px;letter-spacing:.16em;gap:10px}
+.entry--group .entry-title{font-size:15.5px;font-weight:500;line-height:1.5;letter-spacing:.01em}
+.entry--group .entry-excerpt{font-size:12.5px;line-height:1.6;margin-top:5px}
+
+/* ============================================================
+   主体页 · 顶栏与左栏固定，仅列表滚动
+   ============================================================ */
+#view-home.active{
+  display:flex;flex-direction:column;
+  height:100vh;height:100dvh;
+  overflow:hidden;
+}
+#view-home .site-head{flex:none}
+#view-home .masthead{flex:none;padding-top:clamp(24px,4vh,44px)}
+#view-home .mast-rule{margin-top:16px}
+#view-home .page-grid{
+  flex:1 1 auto;min-height:0;
+  width:100%;                    /* 强制铺满再按 max-width 居中，防止收缩成内容宽度导致切换筛选时布局漂移 */
+  align-items:stretch;          /* 让列表列撑满可用高度，内部滚动 */
+  grid-template-rows:minmax(0,1fr);   /* 行高约束为容器高度，防止列表撑破页脚 */
+  grid-template-columns:minmax(180px,220px) minmax(0,1fr);   /* 列宽不随列表内容变化，三个筛选视图一致 */
+  gap:clamp(36px,5vw,72px);
+  padding-bottom:clamp(12px,2vh,24px);
+}
+#view-home .deco{min-height:0}
+#view-home .list{
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  scrollbar-width:none;               /* Firefox / 新版 Edge：隐藏滚动条，仍可滚动 */
+  -ms-overflow-style:none;            /* 旧版 Edge / IE */
+  padding-bottom:clamp(24px,5vh,48px);
+}
+#view-home .list::-webkit-scrollbar{display:none;width:0;height:0}
+#view-home .site-foot{flex:none;padding-bottom:clamp(20px,3vh,36px)}
+
+/* ============================================================
+   响应式
+   ============================================================ */
+@media (max-width:880px){
+  /* 手机端同样保留左右双栏：窄装饰列 + 文章列 */
+  .page-grid{grid-template-columns:minmax(60px,84px) 1fr;gap:clamp(16px,4vw,28px)}
+  #view-home .page-grid{grid-template-columns:minmax(60px,84px) 1fr;gap:clamp(16px,4vw,28px)}
+  .deco{
+    position:static;min-height:0;align-self:start;
+    padding-right:clamp(14px,3vw,20px);
+  }
+  .deco-chars{margin-bottom:28px}
+  .deco-chars span{font-size:34px}
+  .deco-line{height:44px;margin-bottom:32px}
+  .deco-note{display:none}
+  .entry{grid-template-columns:1fr;gap:10px}
+  .entry-no{display:none}
+  .entry-excerpt{font-size:14px}
+  .site-head{flex-direction:column;gap:26px;align-items:flex-start}
+  .filters{gap:26px}
+}
+@media (max-width:420px){
+  .gate-en{letter-spacing:.34em;padding-left:.34em;font-size:12px}
+  .gate-enter{letter-spacing:.26em;padding-left:.26em;font-size:12px}
+  .site-foot .en{font-size:11px}
+  .site-foot .cn{font-size:12px}
+  .page-grid{grid-template-columns:minmax(48px,58px) 1fr;gap:14px}
+  #view-home .page-grid{grid-template-columns:minmax(48px,58px) 1fr;gap:14px}
+  .deco-chars span{font-size:27px}
+  .deco-en{font-size:8px;letter-spacing:.5em}
+  .deco-line{height:36px;margin-bottom:26px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 视图：门户 ===== -->
+<section class="view" id="view-portal" aria-label="门户页">
+  <div class="gate" role="button" tabindex="0" aria-label="进入网站" id="gate">
+    <span class="gate-en">Dim Verge</span>
+    <h1 class="gate-cn">微隅</h1>
+    <span class="gate-enter">进入 · Enter</span>
+  </div>
+</section>
+
+<!-- ===== 视图：主页（文章列表） ===== -->
+<section class="view" id="view-home">
+  <header class="site-head">
+    <a class="brand" href="#/">Dim Verge<span class="dot">·</span>微隅</a>
+    <nav class="head-right" aria-label="文章分类">
+      <div class="filters">
+        <button class="filter active" data-cat="all">全部 All</button>
+        <button class="filter" data-cat="essay">随笔 Essays</button>
+        <button class="filter" data-cat="serial">连载 Serial</button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="masthead">
+    <span class="mast-label">Vol. 01 · Autumn 2026</span>
+    <div class="mast-rule"></div>
+  </section>
+
+  <div class="page-grid">
+    <aside class="deco" aria-hidden="true">
+      <div class="deco-chars"><span>微</span><span>隅</span></div>
+      <div class="deco-line"></div>
+      <div class="deco-en">Dim Verge</div>
+      <div class="deco-note">安静地写，<br>慢慢地写。<br><em>write quietly.</em></div>
+    </aside>
+
+    <main class="list">
+      <div class="list-label" id="listLabel"></div>
+      <div id="list"></div>
+    </main>
+  </div>
+
+  <footer class="site-foot">
+    <div class="en">Stay quiet · Write slowly</div>
+    <div class="cn">静下来，慢慢写。</div>
+    <div class="copy">© MMXXVI Dim Verge · 微隅</div>
+  </footer>
+</section>
+
+<!-- ===== 视图：文章阅读 ===== -->
+<section class="view" id="view-post">
+  <header class="site-head">
+    <a class="brand" href="#/">Dim Verge<span class="dot">·</span>微隅</a>
+    <div class="head-right"><a class="back" href="#/home">返回列表 · Back</a></div>
+  </header>
+
+  <div class="page-grid">
+    <aside class="deco" aria-hidden="true">
+      <div class="deco-chars"><span>微</span><span>隅</span></div>
+      <div class="deco-line"></div>
+      <div class="deco-en">Dim Verge</div>
+      <div class="deco-note" id="decoNote">读 · 001<br><em>reading.</em></div>
+    </aside>
+
+    <article class="article" id="article"></article>
+  </div>
+
+  <footer class="site-foot">
+    <div class="en">Stay quiet · Write slowly</div>
+    <div class="cn">静下来，慢慢写。</div>
+    <div class="copy">© MMXXVI Dim Verge · 微隅</div>
+  </footer>
+</section>
+
+<script>
+/* ============================================================
+   示例文章数据 —— 占位内容，可直接替换为你自己的文字
+   ============================================================ */
+var ARTICLES = [
+  {
+    id: 6, no: "001", cat: "serial", tag: "连载",
+    work: "雾港来信", workEn: "Letters from the Foggy Port", chIndex: 2,
+    title: "第二章 旧码头", date: "2026.09.29",
+    en: "ch.2 · the old pier",
+    excerpt: "旧码头比想象中还要旧。栈桥的木板上钉着生锈的铁钉，潮水涨上来又退下去，留下一道深色的水痕。",
+    body: [
+      "旧码头比想象中还要旧。栈桥的木板上钉着生锈的铁钉，潮水涨上来又退下去，留下一道深色的水痕，像时间的齿痕。",
+      "阿禾在第三根桥柱下找到了那个铁盒。盒盖锈住了，她用指甲一点点撬开，里面躺着一本薄薄的册子，封面上只写了一行字——「给数到第七盏灯的人。」"
+    ]
+  },
+  {
+    id: 1, no: "002", cat: "essay", tag: "随笔",
+    title: "雨落之前", date: "2026.09.28",
+    en: "before the rain",
+    excerpt: "雨还没有落下来，世界先安静了。巷子里的声音一层一层地变轻，像一个人在心里反复措辞，想说什么，又什么都没有说。",
+    body: [
+      "雨还没有落下来，世界先安静了。巷子里的声音一层一层地变轻——先是孩子的笑闹，再是自行车碾过水洼的声响，最后连风也停住了，只剩下檐角悬着的那滴水，迟迟不肯落下。",
+      "我喜欢这样的时刻。在雨落之前，万物都屏住了呼吸，像一个人在心里反复措辞，想说什么，又什么都没有说。",
+      "后来雨真的落下来了，密密地，细得听不见声音。我坐在窗前，忽然觉得，许多想说而未说的话，都已经被这场雨替我讲完了。"
+    ]
+  },
+  {
+    id: 2, no: "003", cat: "serial", tag: "连载",
+    work: "雾港来信", workEn: "Letters from the Foggy Port", chIndex: 1,
+    title: "第一章 潮声", date: "2026.09.21",
+    en: "ch.1 · the tide",
+    excerpt: "雾从海面漫上来的时候，阿禾正坐在码头的尽头数灯。对岸的灯一盏一盏地亮，又一盏一盏地暗下去……",
+    body: [
+      "雾从海面漫上来的时候，阿禾正坐在码头的尽头数灯。对岸的灯一盏一盏地亮，又一盏一盏地暗下去，像某种只有海才懂的暗号。她数到第七盏，风就停了。",
+      "信是在黄昏时分到的。邮差把一只浸过海水的牛皮纸信封放在她手边，没有贴邮票，也没有寄件人的名字，只在封口处压了一枚很旧的蜡印——隐约能看出是一盏灯的形状。",
+      "她把信读了两遍，然后折好，放进外套内侧的口袋。雾更浓了，岸边的灯只剩下模糊的光晕，像远方的某个人，隔着很长的距离，仍然固执地亮着。",
+      "阿禾想，也许这就是她一直等的东西。她不知道自己为什么会这么想，只是当手指触到那枚蜡印时，心口忽然安静下来，像潮水退去后的沙滩。",
+      "天色完全暗下去之前，她起身往回走。身后的雾依旧拢着海面，码头尽头的第七盏灯，不知什么时候，也灭了。"
+    ]
+  },
+  {
+    id: 3, no: "004", cat: "essay", tag: "随笔",
+    title: "给孤独留一扇窗", date: "2026.09.14",
+    en: "a window for solitude",
+    excerpt: "孤独不是关上门，而是在深夜给自己留一扇窗，让风偶尔进来，让路灯的光在地板上洇开一小片。",
+    body: [
+      "孤独不是关上门，而是在深夜给自己留一扇窗，让风偶尔进来，让路灯的光在地板上洇开一小片。",
+      "我从不与人解释我的安静。窗开着的时候，世界是经过的，不是闯入的。"
+    ]
+  },
+  {
+    id: 4, no: "005", cat: "serial", tag: "连载",
+    work: "南方以南", workEn: "South of the South", chIndex: 0,
+    title: "序章 抵达", date: "2026.09.02",
+    en: "prologue · arrival",
+    excerpt: "列车在清晨抵达南方以南。站台上没有人，只有一只猫卧在长椅边，眯着眼，仿佛在等一班永远不会来的车。",
+    body: [
+      "列车在清晨抵达南方以南。站台上没有人，只有一只猫卧在长椅边，眯着眼，仿佛在等一班永远不会来的车。",
+      "她拖着行李箱走出车站，空气是温的，带着某种植物潮湿的气息。地图上标注的终点已经到达，可她心里清楚，真正的旅程，此刻才刚刚开始。"
+    ]
+  },
+  {
+    id: 5, no: "006", cat: "essay", tag: "随笔",
+    title: "深夜的灯火与薄雾", date: "2026.08.30",
+    en: "night lights and thin mist",
+    excerpt: "深夜的灯是安静的，亮着，却不招摇，像一个人心里的念头，自己知道就好。",
+    body: [
+      "深夜的灯是安静的，亮着，却不招摇，像一个人心里的念头，自己知道就好。",
+      "薄雾把远处的楼宇抹成一片灰蓝，我站在阳台，忽然明白所谓归属，也许只是有一盏灯，在你看不见的地方，仍然亮着。"
+    ]
+  },
+  {
+    id: 7, no: "007", cat: "essay", tag: "随笔",
+    title: "夏天以后", date: "2026.08.11",
+    en: "after the summer",
+    sub: "一篇关于告别、时间与那些没有说出口的话",
+    excerpt: "有些夏天，结束以后，就再也没有回来。后来我才知道，真正短暂的不是夏天，而是我们以为可以一直拥有彼此的那段时间。",
+    md: "> 有些夏天，结束以后，就再也没有回来。\n\n## 我们曾经站在夏天里\n\n那年夏天很长。长到我们以为，日子不会有尽头。蝉鸣从窗外一阵阵传进来，阳光落在桌面上，像一层薄薄的金色灰尘。\n\n后来我才知道，真正短暂的不是夏天，而是我们以为可以一直拥有彼此的那段时间。\n\n> 有些告别没有声音，却在某一天突然完成。\n\n我没有问你为什么离开，你也没有告诉我答案。我们只是很安静地，把那一天过完。"
+  },
+  {
+    id: 8, no: "008", cat: "essay", tag: "随笔",
+    title: "Markdown 排版说明", date: "2026.07.30",
+    en: "a short guide to markdown",
+    sub: "微隅正文支持的写法一览",
+    excerpt: "写下的文字，也需要自己的排版。这里用一篇小说明，列出微隅支持的所有写法。",
+    md: "> 写下的文字，也需要自己的排版。这里用一篇小说明，列出微隅支持的所有写法，每条都附上代码样例。\n\n## 段落与引言\n\n正文段落会自动首行缩进两字；写在开头的引言会空两格显示，前面加破折号，用衬线字体与正文区分。\n\n```\n> 有些夏天，结束以后，就再也没有回来。\n```\n\n## 小标题\n\n用 ## 表示分节标题，用 ### 表示更小的分节。\n\n```\n## 我们曾经站在夏天里\n### 更小的分节\n```\n\n## 加粗、斜体与行内代码\n\n可以给词句加上 **重点**，也可以用 *斜体* 写一句英文，比如 *quietly.*；提到某个写法时，可以用 `# 标题` 这样的行内代码。\n\n```\n可以给词句加上 **重点**，也可以写 *quietly.*\n提到底层写法时，可以用 `# 标题` 这样的行内代码。\n```\n\n## 引文\n\n想摘录或强调某句话时，用引用块：\n\n```\n> 有些告别没有声音，却在某一天突然完成。\n```\n\n## 列表\n\n```\n- 随笔：正文段首缩进两字，引言空两格加破折号\n- 连载：按小说分组，章内顺序阅读\n- 引文：缩进显示，左侧细线\n\n1. 写下文字\n2. 选择排版\n3. 慢慢发布\n```\n\n## 分隔线\n\n想在两个小节之间停顿一下，可以用一条分隔线：\n\n```\n---\n```\n\n以上就是全部写法，祝写作愉快。"
+  }
+];
+
+var state = { filter: "all", postId: null };
+
+/* ---------- 工具 ---------- */
+function displayTitle(a){ return a.work ? a.work + " · " + a.title : a.title; }
+
+/* ---------- 文章列表 ---------- */
+function renderList(){
+  var list = document.getElementById("list");
+  var label = document.getElementById("listLabel");
+  var items = state.filter === "all"
+    ? ARTICLES
+    : ARTICLES.filter(function(a){ return a.cat === state.filter; });
+
+  var labelText = "全部 · All";
+  var unit = "篇";
+  if (state.filter === "essay") labelText = "随笔 · Essays";
+  if (state.filter === "serial"){
+    var works = {}, wc = 0;
+    items.forEach(function(a){ if (!works[a.work]){ works[a.work] = true; wc++; } });
+    label.textContent = "连载 · Serial · " + ("0" + wc).slice(-2) + " 部 · " + ("0" + items.length).slice(-2) + " 章";
+  } else {
+    label.textContent = labelText + " · " + ("0" + items.length).slice(-2) + " " + unit;
+  }
+
+  /* 连载：按小说分组，同一部作品内按叙事顺序排列 */
+  if (state.filter === "serial"){
+    var groups = [], seen = {};
+    items.forEach(function(a){
+      if (!seen[a.work]){ seen[a.work] = true; groups.push({ work: a.work, en: a.workEn, chapters: [] }); }
+    });
+    groups.forEach(function(g){
+      g.chapters = items.filter(function(a){ return a.work === g.work; })
+                        .sort(function(p, q){ return p.chIndex - q.chIndex; });
+    });
+
+    list.innerHTML = groups.map(function(g){
+      var latest = g.chapters.map(function(c){ return c.date; }).sort().reverse()[0];
+      var head =
+        '<div class="work-head">' +
+          '<div class="work-title">《' + g.work + '》<span class="work-en">' + g.en + '</span></div>' +
+          '<div class="work-meta">' +
+            '<span class="work-status"><i></i>连载中</span>' +
+            '<span class="work-sep">·</span><span>已更新 ' + ("0" + g.chapters.length).slice(-2) + ' 章</span>' +
+            '<span class="work-sep">·</span><span>最新 ' + latest + '</span>' +
+          '</div>' +
+        '</div>';
+      var chs = g.chapters.map(function(c){
+        return '<a class="entry entry--group" href="#/post/' + c.id + '">' +
+                 '<div>' +
+                   '<div class="entry-meta"><time>' + c.date + '</time></div>' +
+                   '<h3 class="entry-title">' + c.title + '</h3>' +
+                   '<p class="entry-excerpt">' + c.excerpt + '</p>' +
+                 '</div>' +
+               '</a>';
+      }).join("");
+      return '<div class="work-group">' + head + chs + '</div>';
+    }).join("");
+    return;
+  }
+
+  list.innerHTML = items.map(function(a){
+    /* 全部视图只显示标题，不带预览；随笔/连载页才显示摘要 */
+    var ex = state.filter === "all" ? "" :
+      '<p class="entry-excerpt">' + a.excerpt + '</p>';
+    var cls = state.filter === "all" ? "entry entry--compact" : "entry";
+    return '<a class="' + cls + '" href="#/post/' + a.id + '">' +
+             '<span class="entry-no">' + a.no + '</span>' +
+             '<div>' +
+               '<div class="entry-meta"><span class="entry-tag">' + a.tag + '</span><time>' + a.date + '</time></div>' +
+               '<h2 class="entry-title">' + displayTitle(a) + '</h2>' +
+               ex +
+             '</div>' +
+           '</a>';
+  }).join("");
+}
+
+/* ---------- 文章正文 Markdown 渲染 ----------
+   块级：## / ### 标题、> 引文、- 无序列表、1. 有序列表、--- 分隔线、普通段落
+   行内：**加粗**、*斜体*、`行内代码`
+   引言：正文第一段若是 > 引用，渲染为顶格「引言」，与正文区分
+   无引言时，所有正文段落（含首段）都自动首行缩进两字
+   # 一级标题由 title 字段单独渲染，正文里跳过 */
+function inlineMd(t){
+  return t
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+}
+
+function renderMd(md){
+  var lines = md.split("\n");
+  var out = [];
+  var i = 0;
+  var isFirst = true;
+  while (i < lines.length){
+    var line = lines[i].trim();
+    if (line === ""){ i++; continue; }
+    if (/^### /.test(line)){
+      out.push("<h3>" + inlineMd(line.replace(/^###\s+/, "")) + "</h3>"); isFirst = false; i++; continue;
+    }
+    if (/^## /.test(line)){
+      out.push("<h2>" + inlineMd(line.replace(/^##\s+/, "")) + "</h2>"); isFirst = false; i++; continue;
+    }
+    if (/^# /.test(line)){ i++; continue; }
+    if (/^-{3,}$/.test(line)){ out.push("<hr>"); isFirst = false; i++; continue; }
+    if (/^```/.test(line)){
+      var code = [];
+      i++;
+      while (i < lines.length && !/^```/.test(lines[i].trim())){ code.push(lines[i]); i++; }
+      i++;
+      var esc = code.join("\n").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      out.push('<pre><code>' + esc + '</code></pre>');
+      isFirst = false;
+      continue;
+    }
+    if (/^> /.test(line)){
+      var q = [];
+      while (i < lines.length && /^> /.test(lines[i].trim())){ q.push(lines[i].replace(/^>\s?/, "")); i++; }
+      if (isFirst){
+        out.push('<div class="epigraph">' + inlineMd(q.join("")) + '</div>');
+      } else {
+        out.push("<blockquote>" + inlineMd(q.join("")) + "</blockquote>");
+      }
+      isFirst = false;
+      continue;
+    }
+    if (/^[-*] /.test(line)){
+      var items = [];
+      while (i < lines.length && /^[-*] /.test(lines[i].trim())){ items.push(lines[i].replace(/^[-*]\s+/, "")); i++; }
+      out.push("<ul><li>" + items.map(inlineMd).join("</li><li>") + "</li></ul>");
+      isFirst = false;
+      continue;
+    }
+    if (/^\d+\. /.test(line)){
+      var oitems = [];
+      while (i < lines.length && /^\d+\. /.test(lines[i].trim())){ oitems.push(lines[i].replace(/^\d+\.\s+/, "")); i++; }
+      out.push("<ol><li>" + oitems.map(inlineMd).join("</li><li>") + "</li></ol>");
+      isFirst = false;
+      continue;
+    }
+    var para = [];
+    while (i < lines.length){
+      var t = lines[i].trim();
+      if (t === "" || /^(#|>|```|[-*]|\d+\.|-{3,})/.test(t)) break;
+      para.push(t); i++;
+    }
+    out.push("<p>" + inlineMd(para.join("")) + "</p>");
+    isFirst = false;
+  }
+  return out.join("");
+}
+
+/* ---------- 文章阅读页 ---------- */
+function renderPost(){
+  var id = Number(state.postId);
+  var a = null;
+  for (var i = 0; i < ARTICLES.length; i++){ if (ARTICLES[i].id === id){ a = ARTICLES[i]; break; } }
+  if (!a){ location.hash = "#/home"; return; }
+
+  document.title = displayTitle(a) + " · 微隅";
+
+  var bodyHtml = a.md
+    ? renderMd(a.md)
+    : a.body.map(function(p){ return '<p>' + p + '</p>'; }).join("");
+
+  /* 上一篇 / 下一篇：连载只在同一部小说内按章节顺序跳转，随笔按时间前后 */
+  var pool = a.work
+    ? ARTICLES.filter(function(x){ return x.work === a.work; })
+              .sort(function(p, q){ return p.chIndex - q.chIndex; })
+    : ARTICLES.filter(function(x){ return x.cat === "essay"; })
+              .sort(function(p, q){ return q.date.localeCompare(p.date); });
+  var idx = pool.indexOf(a);
+  var prev = a.work ? pool[idx - 1] : pool[idx + 1];
+  var next = a.work ? pool[idx + 1] : pool[idx - 1];
+
+  var crumb = a.work ? '<span class="article-crumb">《' + a.work + '》</span>' : "";
+  var endMark = a.work ? "未完待续" : "完";
+  var subHtml = a.sub ? '<div class="article-sub">' + a.sub + '</div>' : "";
+  var enHtml = a.en ? '<div class="article-en">' + a.en + '</div>' : "";
+
+  document.getElementById("article").innerHTML =
+    '<div class="article-meta"><span class="entry-tag">' + a.tag + '</span>' + crumb + '<time>' + a.date + '</time></div>' +
+    '<h1 class="article-title">' + a.title + '</h1>' +
+    subHtml +
+    enHtml +
+    '<div class="article-rule"></div>' +
+    '<div class="article-body">' + bodyHtml + '</div>' +
+    '<div class="article-end">' + endMark + '</div>' +
+    '<div class="article-nav">' +
+      (prev ? '<a href="#/post/' + prev.id + '">← ' + prev.title + '</a>' : '<span></span>') +
+      (next ? '<a class="next" href="#/post/' + next.id + '">' + next.title + ' →</a>' : '<span></span>') +
+    '</div>';
+
+  document.getElementById("decoNote").innerHTML = a.work
+    ? a.work + "<br><em>serial.</em>"
+    : "读 · " + a.no + "<br><em>reading.</em>";
+}
+
+/* ---------- 路由与视图切换 ---------- */
+function render(){
+  var h = location.hash || "#/";
+  var parts = h.replace("#", "").split("/").filter(Boolean);
+  var path = parts[0] || "portal";
+  state.postId = parts[1] || null;
+
+  var map = { portal: "view-portal", home: "view-home", post: "view-post" };
+  if (!map[path]) path = "portal";
+  var target = map[path];
+
+  document.querySelectorAll(".view").forEach(function(v){ v.classList.remove("active"); });
+  document.getElementById(target).classList.add("active");
+
+  if (path === "home"){
+    document.title = "Dim Verge · 微隅 — 文章";
+    document.querySelectorAll(".filter").forEach(function(x){
+      x.classList.toggle("active", x.dataset.cat === state.filter);
+    });
+    renderList();
+  }
+  if (path === "post") renderPost();
+  if (path === "portal") document.title = "Dim Verge · 微隅";
+
+  window.scrollTo(0, 0);
+}
+
+window.addEventListener("hashchange", render);
+render();
+
+/* ---------- 门户进入 ---------- */
+var gate = document.getElementById("gate");
+function enter(){ location.hash = "#/home"; }
+gate.addEventListener("click", enter);
+gate.addEventListener("keydown", function(e){
+  if (e.key === "Enter" || e.key === " "){ e.preventDefault(); enter(); }
+});
+
+/* ---------- 分类筛选 ---------- */
+document.querySelectorAll(".filter").forEach(function(b){
+  b.addEventListener("click", function(){
+    state.filter = b.dataset.cat;
+    document.querySelectorAll(".filter").forEach(function(x){
+      x.classList.toggle("active", x === b);
+    });
+    renderList();
+    window.scrollTo(0, 0);
+  });
+});
+</script>
+</body>
+</html>

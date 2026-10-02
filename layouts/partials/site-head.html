@@ -1,0 +1,12 @@
+    <a class="brand" href="/">Dim Verge<span class="dot">·</span>微隅</a>
+    <nav class="head-right" aria-label="文章分类">
+      {{ if eq .Kind "page" }}
+        <a class="back" href="/home/">返回列表 · Back</a>
+      {{ else }}
+        <div class="filters">
+          <a class="filter{{ if eq .Section "home" }} active{{ end }}" href="/home/">全部 All</a>
+          <a class="filter{{ if eq .Section "essays" }} active{{ end }}" href="/essays/">随笔 Essays</a>
+          <a class="filter{{ if eq .Section "serial" }} active{{ end }}" href="/serial/">连载 Serial</a>
+        </div>
+      {{ end }}
+    </nav>

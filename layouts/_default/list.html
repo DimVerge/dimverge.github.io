@@ -12,9 +12,25 @@
     <main class="list">
       {{ if and (eq .Section "serial") (not .Parent.IsHome) }}
         {{/* ---- 单部连载的作品页（/serial/<work>/） ---- */}}
-        {{ partial "work-group.html" (dict "work" .) }}
+        <div class="list-scroll">
+          {{ partial "work-group.html" (dict "work" .) }}
+        </div>
       {{ else }}
-        {{ partial "list-content.html" . }}
+        {{ $pag := "" }}
+        {{ if eq .Section "home" }}
+          {{ $all := sort (where site.RegularPages "Section" "in" (slice "essays" "serial")) "Date" "desc" }}
+          {{ $pag = .Paginate $all }}
+        {{ else if eq .Section "essays" }}
+          {{ $essays := sort (where site.RegularPages "Section" "essays") "Date" "desc" }}
+          {{ $pag = .Paginate $essays }}
+        {{ else }}
+          {{ $works := sort .Sections ".Params.weight" "asc" }}
+          {{ $pag = .Paginate $works 1 }}
+        {{ end }}
+        <div class="list-scroll">
+          {{ partial "list-content.html" (dict "ctx" . "pag" $pag) }}
+        </div>
+        {{ partial "pagination.html" $pag }}
       {{ end }}
     </main>
   </div>

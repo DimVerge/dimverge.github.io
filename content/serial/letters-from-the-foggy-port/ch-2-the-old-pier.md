@@ -1,6 +1,6 @@
 ---
 title: 第二章 旧码头
-date: 2026-09-29
+date: 2026-08-27
 no: "001"
 en: ch.2 · the old pier
 work: 雾港来信

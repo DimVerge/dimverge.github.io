@@ -1,6 +1,6 @@
 ---
 title: 第一章 潮声
-date: 2026-09-21
+date: 2026-09-11
 no: "003"
 en: ch.1 · the tide
 work: 雾港来信

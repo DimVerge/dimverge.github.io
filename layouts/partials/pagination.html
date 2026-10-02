@@ -1,0 +1,20 @@
+{{ $pag := . }}
+{{ if and $pag (gt $pag.TotalPages 1) }}
+<nav class="pager" aria-label="分页">
+  {{ if $pag.HasPrev }}
+    <a class="pager-arrow" href="{{ $pag.Prev.URL }}">← 上一页</a>
+  {{ else }}
+    <span class="pager-arrow is-off">← 上一页</span>
+  {{ end }}
+  <div class="pager-nums">
+    {{ range $pag.Pagers }}
+      <a class="pager-num{{ if eq .PageNumber $pag.PageNumber }} active{{ end }}" href="{{ .URL }}">{{ .PageNumber }}</a>
+    {{ end }}
+  </div>
+  {{ if $pag.HasNext }}
+    <a class="pager-arrow" href="{{ $pag.Next.URL }}">下一页 →</a>
+  {{ else }}
+    <span class="pager-arrow is-off">下一页 →</span>
+  {{ end }}
+</nav>
+{{ end }}

@@ -1,59 +1,69 @@
 {{ define "main" }}
-<header class="site-head">
-  {{ partial "site-head.html" . }}
-</header>
+<main class="shell">
+  <header class="site-head">
+    {{ partial "site-head.html" . }}
+  </header>
 
-<div class="page-grid">
-  {{ partial "deco.html" . }}
+  {{ partial "masthead.html" . }}
 
-  <article class="article">
-    <div class="article-meta">
+  <div class="page-grid">
+    {{ partial "deco.html" . }}
+
+    <main class="list">
+      <div class="article-head">
+        <div class="article-meta">
+          {{ if eq .Section "serial" }}
+            <span class="entry-tag">连载</span>
+            <a class="article-crumb" href="/serial/">《{{ .CurrentSection.Title }}》</a>
+          {{ else }}
+            <span class="entry-tag">随笔</span>
+            <span class="article-crumb">随笔 · Essays</span>
+          {{ end }}
+          <span>{{ .Date.Format "2006.01.02" }}</span>
+        </div>
+
+        <h1 class="article-title">{{ .Title }}</h1>
+        {{ with .Params.en }}<div class="article-en">{{ . }}</div>{{ end }}
+        {{ with .Params.sub }}<div class="article-sub">{{ . }}</div>{{ end }}
+        <div class="article-rule"></div>
+      </div>
+
+      <div class="list-scroll">
+        <article class="article">
+          <div class="article-body">
+            {{ .Content }}
+          </div>
+
+          {{ if eq .Section "serial" }}<div class="article-end">未完待续 · to be continued</div>{{ end }}
+        </article>
+      </div>
+
+      {{/* ---- 章内 / 随笔 前后导航（固定在内容区底部） ---- */}}
+      {{ $prev := false }}
+      {{ $next := false }}
       {{ if eq .Section "serial" }}
-        <span class="entry-tag">连载</span>
-        <a class="article-crumb" href="/serial/">《{{ .CurrentSection.Title }}》</a>
+        {{ $chs := sort .CurrentSection.RegularPages ".Params.chIndex" "asc" }}
+        {{ $i := 0 }}{{ range $idx, $p := $chs }}{{ if eq $p.Permalink $.Permalink }}{{ $i = $idx }}{{ end }}{{ end }}
+        {{ if gt $i 0 }}{{ $prev = index $chs (sub $i 1) }}{{ end }}
+        {{ if lt $i (sub (len $chs) 1) }}{{ $next = index $chs (add $i 1) }}{{ end }}
       {{ else }}
-        <span class="entry-tag">随笔</span>
-        <span class="article-crumb">随笔 · Essays</span>
+        {{ $ess := sort (where site.RegularPages "Section" "essays") ".Date" "desc" }}
+        {{ $i := 0 }}{{ range $idx, $p := $ess }}{{ if eq $p.Permalink $.Permalink }}{{ $i = $idx }}{{ end }}{{ end }}
+        {{ if gt $i 0 }}{{ $prev = index $ess (sub $i 1) }}{{ end }}
+        {{ if lt $i (sub (len $ess) 1) }}{{ $next = index $ess (add $i 1) }}{{ end }}
       {{ end }}
-      <span>{{ .Date.Format "2006.01.02" }}</span>
-    </div>
 
-    <h1 class="article-title">{{ .Title }}</h1>
-    {{ with .Params.en }}<div class="article-en">{{ . }}</div>{{ end }}
-    {{ with .Params.sub }}<div class="article-sub">{{ . }}</div>{{ end }}
-    <div class="article-rule"></div>
+      <nav class="article-nav">
+        {{ with $prev }}
+          <a href="{{ .Permalink }}">← {{ if eq $.Section "serial" }}上一章{{ else }}上一篇{{ end }}<br>{{ .Title }}</a>
+        {{ else }}<span></span>{{ end }}
+        {{ with $next }}
+          <a class="next" href="{{ .Permalink }}">{{ if eq $.Section "serial" }}下一章{{ else }}下一篇{{ end }} →<br>{{ .Title }}</a>
+        {{ else }}<span></span>{{ end }}
+      </nav>
+    </main>
+  </div>
 
-    <div class="article-body">
-      {{ .Content }}
-    </div>
-
-    {{ if eq .Section "serial" }}<div class="article-end">未完待续 · to be continued</div>{{ end }}
-
-    {{/* ---- 章内 / 随笔 前后导航 ---- */}}
-    {{ $prev := false }}
-    {{ $next := false }}
-    {{ if eq .Section "serial" }}
-      {{ $chs := sort .CurrentSection.RegularPages ".Params.chIndex" "asc" }}
-      {{ $i := 0 }}{{ range $idx, $p := $chs }}{{ if eq $p.Permalink $.Permalink }}{{ $i = $idx }}{{ end }}{{ end }}
-      {{ if gt $i 0 }}{{ $prev = index $chs (sub $i 1) }}{{ end }}
-      {{ if lt $i (sub (len $chs) 1) }}{{ $next = index $chs (add $i 1) }}{{ end }}
-    {{ else }}
-      {{ $ess := sort (where site.RegularPages "Section" "essays") ".Date" "desc" }}
-      {{ $i := 0 }}{{ range $idx, $p := $ess }}{{ if eq $p.Permalink $.Permalink }}{{ $i = $idx }}{{ end }}{{ end }}
-      {{ if gt $i 0 }}{{ $prev = index $ess (sub $i 1) }}{{ end }}
-      {{ if lt $i (sub (len $ess) 1) }}{{ $next = index $ess (add $i 1) }}{{ end }}
-    {{ end }}
-
-    <nav class="article-nav">
-      {{ with $prev }}
-        <a href="{{ .Permalink }}">← {{ if eq $.Section "serial" }}上一章{{ else }}上一篇{{ end }}<br>{{ .Title }}</a>
-      {{ else }}<span></span>{{ end }}
-      {{ with $next }}
-        <a class="next" href="{{ .Permalink }}">{{ if eq $.Section "serial" }}下一章{{ else }}下一篇{{ end }} →<br>{{ .Title }}</a>
-      {{ else }}<span></span>{{ end }}
-    </nav>
-  </article>
-</div>
-
-{{ partial "site-foot.html" . }}
+  {{ partial "site-foot.html" . }}
+</main>
 {{ end }}

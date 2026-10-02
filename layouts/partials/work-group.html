@@ -1,5 +1,5 @@
 {{ $w := .work }}
-{{ $chs := sort $w.RegularPages ".Params.chIndex" "asc" }}
+{{ $chs := sort $w.RegularPages ".Params.chIndex" "desc" }}
 {{ $latest := index (sort $w.RegularPages ".Date" "desc") 0 }}
 {{ $count := len $chs }}
 <section class="work-group">
@@ -13,6 +13,7 @@
       <span>最新 {{ $latest.Date.Format "2006.01.02" }}</span>
     </div>
   </header>
+  <div class="work-chapters">
   {{ range $chs }}
     <a class="entry entry--group" href="{{ .Permalink }}">
       <div>
@@ -22,4 +23,5 @@
       </div>
     </a>
   {{ end }}
+  </div>
 </section>

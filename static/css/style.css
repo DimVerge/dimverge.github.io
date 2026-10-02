@@ -207,7 +207,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   line-height:1.75;margin-top:10px;max-width:46em;
 }
 /* 全部视图 · 紧凑索引列表（无预览） */
-.entry--compact{grid-template-columns:1fr;gap:14px;padding:18px 0}
+.entry--compact{grid-template-columns:1fr;gap:14px;padding:13px 0}
 .entry--compact .entry-meta{margin-bottom:6px;font-size:10.5px;letter-spacing:.16em;gap:10px}
 .entry--compact .entry-title{font-size:16px;line-height:1.5}
 
@@ -215,23 +215,23 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .article{max-width:660px}
 .article-meta{
   font-size:11px;letter-spacing:.24em;color:var(--gray);
-  display:flex;align-items:center;gap:14px;margin-bottom:22px;
+  display:flex;align-items:center;gap:14px;margin-bottom:12px;
 }
 .article-meta .entry-tag::before{width:4px;height:4px;border-radius:1px}
 .article-title{
-  font-size:clamp(26px,3.2vw,34px);
-  font-weight:500;letter-spacing:.02em;line-height:1.5;
+  font-size:clamp(22px,2.6vw,28px);
+  font-weight:500;letter-spacing:.02em;line-height:1.45;
 }
 .article-en{
-  margin-top:14px;
-  font-family:var(--serif);font-style:italic;font-size:14px;color:var(--faint);
+  margin-top:8px;
+  font-family:var(--serif);font-style:italic;font-size:12.5px;color:var(--faint);
   letter-spacing:.04em;
 }
 .article-crumb{font-weight:500;color:var(--ink);letter-spacing:.1em}
 .article-sub{
-  margin-top:14px;
-  font-size:15px;font-weight:300;color:var(--gray);
-  line-height:1.8;letter-spacing:.02em;
+  margin-top:10px;
+  font-size:14px;font-weight:300;color:var(--gray);
+  line-height:1.7;letter-spacing:.02em;
 }
 /* 关于页 · 站主签名区块 */
 .about-sign .article-title{
@@ -339,7 +339,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 }
 .article-nav{
   display:flex;justify-content:space-between;gap:24px;
-  margin-top:72px;padding-top:36px;border-top:1px solid var(--line);
+  margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
 }
 .article-nav a{
   font-size:12.5px;letter-spacing:.14em;color:var(--gray);
@@ -386,13 +386,23 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .entry--group .entry-title{font-size:15.5px;font-weight:500;line-height:1.5;letter-spacing:.01em}
 .entry--group .entry-excerpt{font-size:12.5px;line-height:1.6;margin-top:5px}
 
+/* 连载 · 作品章节区（章节在作品内滚动阅览） */
+.work-chapters{
+  overflow-y:auto;overflow-x:hidden;
+  overscroll-behavior:contain;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+  max-height:min(32vh,380px);
+  margin-top:clamp(18px,3vh,28px);
+}
+.work-chapters::-webkit-scrollbar{display:none;width:0;height:0}
+
 /* ============================================================
    列表页 · 顶栏与左栏固定，仅列表滚动
    ============================================================ */
 .shell{
   display:flex;flex-direction:column;
   height:100vh;height:100dvh;
-  overflow:hidden;
 }
 .shell .site-head{flex:none}
 .shell .masthead{flex:none;padding-top:clamp(24px,4vh,44px)}
@@ -400,8 +410,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .shell .page-grid{
   flex:1 1 auto;min-height:0;
   width:100%;                    /* 强制铺满再按 max-width 居中，防止收缩成内容宽度导致布局漂移 */
-  align-items:stretch;          /* 让列表列撑满可用高度，内部滚动 */
-  grid-template-rows:minmax(0,1fr);   /* 行高约束为容器高度，防止列表撑破页脚 */
+  align-items:stretch;          /* 让列表列撑满可用高度 */
   grid-template-columns:minmax(180px,220px) minmax(0,1fr);   /* 列宽不随列表内容变化 */
   gap:clamp(36px,5vw,72px);
   padding-bottom:clamp(12px,2vh,24px);
@@ -409,15 +418,49 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .shell .deco{min-height:0}
 .shell .list{
   min-height:0;
-  overflow-y:auto;
-  overflow-x:hidden;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+.shell .list .list-scroll{
+  flex:1 1 auto;min-height:0;
+  overflow-y:auto;overflow-x:hidden;
   overscroll-behavior:contain;
-  scrollbar-width:none;               /* Firefox / 新版 Edge：隐藏滚动条，仍可滚动 */
-  -ms-overflow-style:none;            /* 旧版 Edge / IE */
+  scrollbar-width:none;
+  -ms-overflow-style:none;
   padding-bottom:clamp(24px,5vh,48px);
 }
-.shell .list::-webkit-scrollbar{display:none;width:0;height:0}
+.shell .list .list-scroll::-webkit-scrollbar{display:none;width:0;height:0}
+.shell .list .article-head{flex:none}
+.shell .list .article-head .article-rule{margin:clamp(14px,2vh,20px) 0 clamp(16px,2.5vh,24px)}
+.shell .list .article-nav{
+  flex:none;
+  margin-top:clamp(12px,2vh,20px);
+  padding-top:clamp(10px,1.5vh,16px);
+  border-top:1px solid var(--line);
+  background:var(--bg);
+}
 .shell .site-foot{flex:none;padding-bottom:clamp(20px,3vh,36px)}
+.shell .list .pager{
+  flex:none;
+  margin-top:clamp(16px,2.5vh,28px);
+  padding-top:clamp(12px,2vh,18px);
+  border-top:1px solid var(--line);
+  background:var(--bg);
+}
+
+/* 分页导航 */
+.pager{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:clamp(30px,5vh,48px);
+  font-size:11px;letter-spacing:.18em;color:var(--gray);
+}
+.pager-nums{display:flex;gap:20px}
+.pager-num{color:var(--gray);transition:color .3s ease}
+.pager-num:hover{color:var(--accent)}
+.pager-num.active{color:var(--accent);font-weight:600}
+.pager-arrow{color:var(--gray);transition:color .3s ease}
+.pager-arrow:hover{color:var(--accent)}
+.pager-arrow.is-off{opacity:.22;pointer-events:none}
 
 /* ============================================================
    响应式

@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://dimverge.github.io/"
 languageCode = "zh-CN"
 title = "Dim Verge · 微隅"
 enableRobotsTXT = false

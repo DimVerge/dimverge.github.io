@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dim Verge · 微隅</title>
-    <link>/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Dim Verge · 微隅</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate>Tue, 29 Sep 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>第一章 潮声</title>
-      <link>/serial/letters-from-the-foggy-port/ch-1-the-tide/</link>
+      <link>http://localhost:1313/serial/letters-from-the-foggy-port/ch-1-the-tide/</link>
       <pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>/serial/letters-from-the-foggy-port/ch-1-the-tide/</guid>
+      <guid>http://localhost:1313/serial/letters-from-the-foggy-port/ch-1-the-tide/</guid>
       <description>&lt;p&gt;雾从海面漫上来的时候，阿禾正坐在码头的尽头数灯。对岸的灯一盏一盏地亮，又一盏一盏地暗下去，像某种只有海才懂的暗号。她数到第七盏，风就停了。&lt;/p&gt;&#xA;&lt;p&gt;信是在黄昏时分到的。邮差把一只浸过海水的牛皮纸信封放在她手边，没有贴邮票，也没有寄件人的名字，只在封口处压了一枚很旧的蜡印——隐约能看出是一盏灯的形状。&lt;/p&gt;&#xA;&lt;p&gt;她把信读了两遍，然后折好，放进外套内侧的口袋。雾更浓了，岸边的灯只剩下模糊的光晕，像远方的某个人，隔着很长的距离，仍然固执地亮着。&lt;/p&gt;&#xA;&lt;p&gt;阿禾想，也许这就是她一直等的东西。她不知道自己为什么会这么想，只是当手指触到那枚蜡印时，心口忽然安静下来，像潮水退去后的沙滩。&lt;/p&gt;&#xA;&lt;p&gt;天色完全暗下去之前，她起身往回走。身后的雾依旧拢着海面，码头尽头的第七盏灯，不知什么时候，也灭了。&lt;/p&gt;</description>
     </item>
     <item>
       <title>第二章 旧码头</title>
-      <link>/serial/letters-from-the-foggy-port/ch-2-the-old-pier/</link>
+      <link>http://localhost:1313/serial/letters-from-the-foggy-port/ch-2-the-old-pier/</link>
       <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>/serial/letters-from-the-foggy-port/ch-2-the-old-pier/</guid>
+      <guid>http://localhost:1313/serial/letters-from-the-foggy-port/ch-2-the-old-pier/</guid>
       <description>&lt;p&gt;旧码头比想象中还要旧。栈桥的木板上钉着生锈的铁钉，潮水涨上来又退下去，留下一道深色的水痕，像时间的齿痕。&lt;/p&gt;&#xA;&lt;p&gt;阿禾在第三根桥柱下找到了那个铁盒。盒盖锈住了，她用指甲一点点撬开，里面躺着一本薄薄的册子，封面上只写了一行字——「给数到第七盏灯的人。」&lt;/p&gt;</description>
     </item>
     <item>
       <title>雨落之前</title>
-      <link>/essays/rain-before/</link>
+      <link>http://localhost:1313/essays/rain-before/</link>
       <pubDate>Mon, 28 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>/essays/rain-before/</guid>
+      <guid>http://localhost:1313/essays/rain-before/</guid>
       <description>&lt;p&gt;雨还没有落下来，世界先安静了。巷子里的声音一层一层地变轻——先是孩子的笑闹，再是自行车碾过水洼的声响，最后连风也停住了，只剩下檐角悬着的那滴水，迟迟不肯落下。&lt;/p&gt;&#xA;&lt;p&gt;我喜欢这样的时刻。在雨落之前，万物都屏住了呼吸，像一个人在心里反复措辞，想说什么，又什么都没有说。&lt;/p&gt;&#xA;&lt;p&gt;后来雨真的落下来了，密密地，细得听不见声音。我坐在窗前，忽然觉得，许多想说而未说的话，都已经被这场雨替我讲完了。&lt;/p&gt;</description>
     </item>
     <item>
       <title>给孤独留一扇窗</title>
-      <link>/essays/a-window-for-solitude/</link>
+      <link>http://localhost:1313/essays/a-window-for-solitude/</link>
       <pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>/essays/a-window-for-solitude/</guid>
+      <guid>http://localhost:1313/essays/a-window-for-solitude/</guid>
       <description>&lt;p&gt;孤独不是关上门，而是在深夜给自己留一扇窗，让风偶尔进来，让路灯的光在地板上洇开一小片。&lt;/p&gt;&#xA;&lt;p&gt;我从不与人解释我的安静。窗开着的时候，世界是经过的，不是闯入的。&lt;/p&gt;</description>
     </item>
     <item>
       <title>序章 抵达</title>
-      <link>/serial/south-of-the-south/prologue-arrival/</link>
+      <link>http://localhost:1313/serial/south-of-the-south/prologue-arrival/</link>
       <pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>/serial/south-of-the-south/prologue-arrival/</guid>
+      <guid>http://localhost:1313/serial/south-of-the-south/prologue-arrival/</guid>
       <description>&lt;p&gt;列车在清晨抵达南方以南。站台上没有人，只有一只猫卧在长椅边，眯着眼，仿佛在等一班永远不会来的车。&lt;/p&gt;&#xA;&lt;p&gt;她拖着行李箱走出车站，空气是温的，带着某种植物潮湿的气息。地图上标注的终点已经到达，可她心里清楚，真正的旅程，此刻才刚刚开始。&lt;/p&gt;</description>
     </item>
     <item>
       <title>深夜的灯火与薄雾</title>
-      <link>/essays/night-lights-and-thin-mist/</link>
+      <link>http://localhost:1313/essays/night-lights-and-thin-mist/</link>
       <pubDate>Sun, 30 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>/essays/night-lights-and-thin-mist/</guid>
+      <guid>http://localhost:1313/essays/night-lights-and-thin-mist/</guid>
       <description>&lt;p&gt;深夜的灯是安静的，亮着，却不招摇，像一个人心里的念头，自己知道就好。&lt;/p&gt;&#xA;&lt;p&gt;薄雾把远处的楼宇抹成一片灰蓝，我站在阳台，忽然明白所谓归属，也许只是有一盏灯，在你看不见的地方，仍然亮着。&lt;/p&gt;</description>
     </item>
     <item>
       <title>夏天以后</title>
-      <link>/essays/after-the-summer/</link>
+      <link>http://localhost:1313/essays/after-the-summer/</link>
       <pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>/essays/after-the-summer/</guid>
+      <guid>http://localhost:1313/essays/after-the-summer/</guid>
       <description>&lt;div class=&#34;epigraph&#34;&gt;有些夏天，结束以后，就再也没有回来。&lt;/div&gt;&#xA;&#xA;&lt;h2 id=&#34;我们曾经站在夏天里&#34;&gt;我们曾经站在夏天里&lt;/h2&gt;&#xA;&lt;p&gt;那年夏天很长。长到我们以为，日子不会有尽头。蝉鸣从窗外一阵阵传进来，阳光落在桌面上，像一层薄薄的金色灰尘。&lt;/p&gt;&#xA;&lt;p&gt;后来我才知道，真正短暂的不是夏天，而是我们以为可以一直拥有彼此的那段时间。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;有些告别没有声音，却在某一天突然完成。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;我没有问你为什么离开，你也没有告诉我答案。我们只是很安静地，把那一天过完。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Markdown 排版说明</title>
-      <link>/essays/markdown-guide/</link>
+      <link>http://localhost:1313/essays/markdown-guide/</link>
       <pubDate>Thu, 30 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>/essays/markdown-guide/</guid>
+      <guid>http://localhost:1313/essays/markdown-guide/</guid>
       <description>&lt;div class=&#34;epigraph&#34;&gt;写下的文字，也需要自己的排版。这里用一篇小说明，列出微隅支持的所有写法，每条都附上代码样例。&lt;/div&gt;&#xA;&#xA;&lt;h2 id=&#34;段落与引言&#34;&gt;段落与引言&lt;/h2&gt;&#xA;&lt;p&gt;正文段落会自动首行缩进两字；写在开头的引言会空两格显示，前面加破折号，用衬线字体与正文区分。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; 有些夏天，结束以后，就再也没有回来。&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;小标题&#34;&gt;小标题&lt;/h2&gt;&#xA;&lt;p&gt;用 ## 表示分节标题，用 ### 表示更小的分节。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;## 我们曾经站在夏天里&#xA;### 更小的分节&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;加粗斜体与行内代码&#34;&gt;加粗、斜体与行内代码&lt;/h2&gt;&#xA;&lt;p&gt;可以给词句加上 &lt;strong&gt;重点&lt;/strong&gt;，也可以用 &lt;em&gt;斜体&lt;/em&gt; 写一句英文，比如 &lt;em&gt;quietly.&lt;/em&gt;；提到某个写法时，可以用 &lt;code&gt;# 标题&lt;/code&gt; 这样的行内代码。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;可以给词句加上 **重点**，也可以写 *quietly.*&#xA;提到底层写法时，可以用 `# 标题` 这样的行内代码。&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;引文&#34;&gt;引文&lt;/h2&gt;&#xA;&lt;p&gt;想摘录或强调某句话时，用引用块：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; 有些告别没有声音，却在某一天突然完成。&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;列表&#34;&gt;列表&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- 随笔：正文段首缩进两字，引言空两格加破折号&#xA;- 连载：按小说分组，章内顺序阅读&#xA;- 引文：缩进显示，左侧细线&#xA;&#xA;1. 写下文字&#xA;2. 选择排版&#xA;3. 慢慢发布&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;分隔线&#34;&gt;分隔线&lt;/h2&gt;&#xA;&lt;p&gt;想在两个小节之间停顿一下，可以用一条分隔线：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;---&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;以上就是全部写法，祝写作愉快。&lt;/p&gt;</description>
     </item>
   </channel>

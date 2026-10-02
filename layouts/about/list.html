@@ -1,0 +1,33 @@
+{{ define "main" }}
+<main class="shell">
+  <header class="site-head">
+    {{ partial "site-head.html" . }}
+  </header>
+
+  {{ partial "masthead.html" . }}
+
+  <div class="page-grid">
+    {{ partial "deco.html" . }}
+
+    <main class="list">
+      <article class="article">
+        <div class="article-meta">
+          <span class="entry-tag">关于</span>
+          <span class="article-crumb">About</span>
+        </div>
+
+        <div class="about-sign">
+          <h1 class="article-title">「{{ .Title }}」</h1>
+        </div>
+        <div class="article-rule"></div>
+
+        <div class="article-body about-body">
+          {{ .Content }}
+        </div>
+      </article>
+    </main>
+  </div>
+
+  {{ partial "site-foot.html" . }}
+</main>
+{{ end }}

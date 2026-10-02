@@ -1,18 +1,109 @@
-<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Markdown 排版说明 — Dim Verge · 微隅</title><meta name=description content="Dim Verge · 微隅 —— 安静地写，慢慢地写。"><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=stylesheet href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;600&display=swap"><link rel=stylesheet href=/css/style.css></head><body><header class=site-head><a class=brand href=/>Dim Verge<span class=dot>·</span>微隅</a><nav class=head-right aria-label=文章分类><a class=back href=/home/>返回列表 · Back</a></nav></header><div class=page-grid><aside class=deco aria-hidden=true><div class=deco-chars><span>微</span><span>隅</span></div><div class=deco-line></div><div class=deco-en>Dim Verge</div><div class=deco-note>读 · 008<br><em>reading.</em></div></aside><article class=article><div class=article-meta><span class=entry-tag>随笔</span>
-<span class=article-crumb>随笔 · Essays</span>
-<span>2026.07.30</span></div><h1 class=article-title>Markdown 排版说明</h1><div class=article-en>a short guide to markdown</div><div class=article-sub>微隅正文支持的写法一览</div><div class=article-rule></div><div class=article-body><div class=epigraph>写下的文字，也需要自己的排版。这里用一篇小说明，列出微隅支持的所有写法，每条都附上代码样例。</div><h2 id=段落与引言>段落与引言</h2><p>正文段落会自动首行缩进两字；写在开头的引言会空两格显示，前面加破折号，用衬线字体与正文区分。</p><pre tabindex=0><code>&gt; 有些夏天，结束以后，就再也没有回来。
-</code></pre><h2 id=小标题>小标题</h2><p>用 ## 表示分节标题，用 ### 表示更小的分节。</p><pre tabindex=0><code>## 我们曾经站在夏天里
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markdown 排版说明 — Dim Verge · 微隅</title>
+<meta name="description" content="Dim Verge · 微隅 —— 安静地写，慢慢地写。">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="/css/style.css?v=1790947215">
+
+</head>
+<body>
+  
+<header class="site-head">
+      <a class="brand" href="/">Dim Verge<span class="dot">·</span>微隅</a>
+    <nav class="head-right" aria-label="文章分类">
+      
+        <a class="back" href="/home/">返回列表 · Back</a>
+      
+    </nav>
+
+</header>
+
+<div class="page-grid">
+  <aside class="deco" aria-hidden="true">
+  <div class="deco-chars"><span>微</span><span>隅</span></div>
+  <div class="deco-line"></div>
+  <div class="deco-en">Dim Verge</div>
+  <div class="deco-note">读 · 008<br><em>reading.</em></div>
+</aside>
+
+
+  <article class="article">
+    <div class="article-meta">
+      
+        <span class="entry-tag">随笔</span>
+        <span class="article-crumb">随笔 · Essays</span>
+      
+      <span>2026.07.30</span>
+    </div>
+
+    <h1 class="article-title">Markdown 排版说明</h1>
+    <div class="article-en">a short guide to markdown</div>
+    <div class="article-sub">微隅正文支持的写法一览</div>
+    <div class="article-rule"></div>
+
+    <div class="article-body">
+      <div class="epigraph">写下的文字，也需要自己的排版。这里用一篇小说明，列出微隅支持的所有写法，每条都附上代码样例。</div>
+
+<h2 id="段落与引言">段落与引言</h2>
+<p>正文段落会自动首行缩进两字；写在开头的引言会空两格显示，前面加破折号，用衬线字体与正文区分。</p>
+<pre tabindex="0"><code>&gt; 有些夏天，结束以后，就再也没有回来。
+</code></pre><h2 id="小标题">小标题</h2>
+<p>用 ## 表示分节标题，用 ### 表示更小的分节。</p>
+<pre tabindex="0"><code>## 我们曾经站在夏天里
 ### 更小的分节
-</code></pre><h2 id=加粗斜体与行内代码>加粗、斜体与行内代码</h2><p>可以给词句加上 <strong>重点</strong>，也可以用 <em>斜体</em> 写一句英文，比如 <em>quietly.</em>；提到某个写法时，可以用 <code># 标题</code> 这样的行内代码。</p><pre tabindex=0><code>可以给词句加上 **重点**，也可以写 *quietly.*
+</code></pre><h2 id="加粗斜体与行内代码">加粗、斜体与行内代码</h2>
+<p>可以给词句加上 <strong>重点</strong>，也可以用 <em>斜体</em> 写一句英文，比如 <em>quietly.</em>；提到某个写法时，可以用 <code># 标题</code> 这样的行内代码。</p>
+<pre tabindex="0"><code>可以给词句加上 **重点**，也可以写 *quietly.*
 提到底层写法时，可以用 `# 标题` 这样的行内代码。
-</code></pre><h2 id=引文>引文</h2><p>想摘录或强调某句话时，用引用块：</p><pre tabindex=0><code>&gt; 有些告别没有声音，却在某一天突然完成。
-</code></pre><h2 id=列表>列表</h2><pre tabindex=0><code>- 随笔：正文段首缩进两字，引言空两格加破折号
+</code></pre><h2 id="引文">引文</h2>
+<p>想摘录或强调某句话时，用引用块：</p>
+<pre tabindex="0"><code>&gt; 有些告别没有声音，却在某一天突然完成。
+</code></pre><h2 id="列表">列表</h2>
+<pre tabindex="0"><code>- 随笔：正文段首缩进两字，引言空两格加破折号
 - 连载：按小说分组，章内顺序阅读
 - 引文：缩进显示，左侧细线
 
 1. 写下文字
 2. 选择排版
 3. 慢慢发布
-</code></pre><h2 id=分隔线>分隔线</h2><p>想在两个小节之间停顿一下，可以用一条分隔线：</p><pre tabindex=0><code>---
-</code></pre><p>以上就是全部写法，祝写作愉快。</p></div><nav class=article-nav><a href=https://dimverge.github.io/essays/after-the-summer/>← 上一篇<br>夏天以后</a>
-<span></span></nav></article></div><footer class=site-foot><div class=en>Stay quiet · Write slowly</div><div class=cn>静下来，慢慢写。</div><div class=copy>© MMXXVI Dim Verge · 微隅</div></footer></body></html>
+</code></pre><h2 id="分隔线">分隔线</h2>
+<p>想在两个小节之间停顿一下，可以用一条分隔线：</p>
+<pre tabindex="0"><code>---
+</code></pre><p>以上就是全部写法，祝写作愉快。</p>
+
+    </div>
+
+    
+
+    
+    
+    
+    
+      
+      
+      
+      
+    
+
+    <nav class="article-nav">
+      
+        <a href="http://localhost:1313/essays/after-the-summer/">← 上一篇<br>夏天以后</a>
+      
+      <span></span>
+    </nav>
+  </article>
+</div>
+
+<footer class="site-foot">
+  <div class="en">Stay quiet · Write slowly</div>
+  <div class="cn">静下来，慢慢写。</div>
+  <div class="copy">© MMXXVI Dim Verge · 微隅</div>
+</footer>
+
+
+</body>
+</html>

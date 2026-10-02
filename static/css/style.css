@@ -233,6 +233,28 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   font-size:15px;font-weight:300;color:var(--gray);
   line-height:1.8;letter-spacing:.02em;
 }
+/* 关于页 · 站主签名区块 */
+.about-sign .article-title{
+  font-size:clamp(30px,3.8vw,42px);
+  font-weight:400;letter-spacing:.32em;padding-left:.32em;
+  line-height:1.25;
+}
+.about-sign .article-en{
+  margin-top:22px;
+  font-size:13px;letter-spacing:.22em;color:var(--gray);
+}
+/* 关于页 · 题词排版 */
+.about-body{
+  margin-top:clamp(16px,2vh,24px);
+}
+.about-body p{
+  text-indent:0;
+  font-size:16.5px;font-weight:300;color:#333336;
+  line-height:2.05;letter-spacing:.06em;
+  margin-bottom:1.6em;
+  max-width:32em;
+}
+.about-body p:last-child{margin-bottom:0}
 .article-rule{width:48px;height:1px;background:var(--accent);margin:30px 0 44px}
 .article-body p{
   font-size:15.5px;font-weight:300;line-height:1.85;color:#333336;

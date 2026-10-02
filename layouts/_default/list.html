@@ -4,13 +4,7 @@
     {{ partial "site-head.html" . }}
   </header>
 
-  <section class="masthead">
-    {{ $m := int (now.Format "1") }}
-    {{ $season := "Winter" }}
-    {{ if or (eq $m 3) (eq $m 4) (eq $m 5) }}{{ $season = "Spring" }}{{ else if or (eq $m 6) (eq $m 7) (eq $m 8) }}{{ $season = "Summer" }}{{ else if or (eq $m 9) (eq $m 10) (eq $m 11) }}{{ $season = "Autumn" }}{{ end }}
-    <span class="mast-label">Vol. {{ now.Format "01" }} · {{ $season }} {{ now.Format "2006" }}</span>
-    <div class="mast-rule"></div>
-  </section>
+  {{ partial "masthead.html" . }}
 
   <div class="page-grid">
     {{ partial "deco.html" . }}

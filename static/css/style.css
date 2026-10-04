@@ -433,11 +433,9 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .shell .list .article-head{flex:none}
 .shell .list .article-head .article-rule{margin:clamp(14px,2vh,20px) 0 clamp(16px,2.5vh,24px)}
 .shell .list .article-nav{
-  flex:none;
   margin-top:clamp(12px,2vh,20px);
   padding-top:clamp(10px,1.5vh,16px);
   border-top:1px solid var(--line);
-  background:var(--bg);
 }
 .shell .site-foot{flex:none;padding-bottom:clamp(20px,3vh,36px)}
 .shell .list .pager{

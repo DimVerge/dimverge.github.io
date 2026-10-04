@@ -362,6 +362,28 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   font-weight:300;
 }
 .article-body tr:last-child td{border-bottom:none}
+.article-body .footnotes{
+  margin-top:2.6em;
+  font-family:"Kaiti SC","STKaiti","KaiTi","楷体","SimKai",serif;
+  font-size:12px;
+  color:var(--gray);
+}
+.article-body .footnotes hr{
+  width:32px;
+  margin:0 0 1.1em;
+}
+.article-body .footnotes ol{
+  margin:0;padding-left:1.4em;
+}
+.article-body .footnotes li{
+  font-family:"Kaiti SC","STKaiti","KaiTi","楷体","SimKai",serif;
+  font-size:12px;line-height:1.75;color:var(--gray);
+  margin-bottom:.45em;
+}
+.article-body .footnotes a{
+  color:var(--faint);
+  text-decoration:none;
+}
 .article-end{
   text-align:center;color:var(--faint);
   font-size:11px;letter-spacing:.5em;margin:72px 0 0;padding-left:.5em;

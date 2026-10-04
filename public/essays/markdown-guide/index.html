@@ -7,7 +7,7 @@
 <meta name="description" content="Dim Verge · 微隅 —— 安静地写，慢慢地写。">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="/css/style.css?v=1791099151">
+<link rel="stylesheet" href="/css/style.css?v=1791099848">
 
 </head>
 <body>
@@ -60,23 +60,48 @@
       <div class="list-scroll">
         <article class="article">
           <div class="article-body">
-            <div class="epigraph">写下的文字，也需要自己的排版。这里用一篇小说明，列出微隅支持的所有写法，每条都附上代码样例。</div>
+            <div class="epigraph">写下的文字，也需要自己的排版。这里用一篇小说明，列出微隅支持的所有写法，每条都附上渲染效果与代码样例。</div>
 
 <h2 id="段落与引言">段落与引言</h2>
 <p>正文段落会自动首行缩进两字；写在开头的引言会空两格显示，前面加破折号，用衬线字体与正文区分。</p>
+<p>上面这段就是普通段落的渲染效果；下面这行是引言：</p>
+<blockquote>
+<p>有些夏天，结束以后，就再也没有回来。</p>
+</blockquote>
+<p>写法：</p>
 <pre tabindex="0"><code>&gt; 有些夏天，结束以后，就再也没有回来。
 </code></pre><h2 id="小标题">小标题</h2>
-<p>用 ## 表示分节标题，用 ### 表示更小的分节。</p>
+<p>用 ## 表示分节标题，用 ### 表示更小的分节。渲染效果就是本文各小节的标题本身，例如：</p>
+<h2 id="我们曾经站在夏天里">我们曾经站在夏天里</h2>
+<h3 id="更小的分节">更小的分节</h3>
+<p>写法：</p>
 <pre tabindex="0"><code>## 我们曾经站在夏天里
 ### 更小的分节
 </code></pre><h2 id="加粗斜体与行内代码">加粗、斜体与行内代码</h2>
-<p>可以给词句加上 <strong>重点</strong>，也可以用 <em>斜体</em> 写一句英文，比如 <em>quietly.</em>；提到某个写法时，可以用 <code># 标题</code> 这样的行内代码。</p>
+<p>可以给词句加上 <strong>重点</strong>，也可以用 <em>斜体</em> 写一句英文，比如 <em>quietly.</em>；提到某个写法时，可以用 <code># 标题</code> 这样的行内代码。上面这句本身就展示了三种效果。</p>
+<p>写法：</p>
 <pre tabindex="0"><code>可以给词句加上 **重点**，也可以写 *quietly.*
 提到底层写法时，可以用 `# 标题` 这样的行内代码。
 </code></pre><h2 id="引文">引文</h2>
-<p>想摘录或强调某句话时，用引用块：</p>
+<p>想摘录或强调某句话时，用引用块。渲染效果：</p>
+<blockquote>
+<p>有些告别没有声音，却在某一天突然完成。</p>
+</blockquote>
+<p>写法：</p>
 <pre tabindex="0"><code>&gt; 有些告别没有声音，却在某一天突然完成。
 </code></pre><h2 id="列表">列表</h2>
+<p>无序列表与有序列表都可以用，条目多时尤其合适。渲染效果：</p>
+<ul>
+<li>随笔：正文段首缩进两字，引言空两格加破折号</li>
+<li>连载：按小说分组，章内顺序阅读</li>
+<li>引文：缩进显示，左侧细线</li>
+</ul>
+<ol>
+<li>写下文字</li>
+<li>选择排版</li>
+<li>慢慢发布</li>
+</ol>
+<p>写法：</p>
 <pre tabindex="0"><code>- 随笔：正文段首缩进两字，引言空两格加破折号
 - 连载：按小说分组，章内顺序阅读
 - 引文：缩进显示，左侧细线
@@ -84,10 +109,94 @@
 1. 写下文字
 2. 选择排版
 3. 慢慢发布
+</code></pre><h2 id="任务清单">任务清单</h2>
+<p>想记录未竟之事，可以用任务清单，勾选状态会直接显示。渲染效果：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 写完这一篇</li>
+<li><input disabled="" type="checkbox"> 校一遍错字</li>
+<li><input disabled="" type="checkbox"> 挑一个安静的下午发布</li>
+</ul>
+<p>写法：</p>
+<pre tabindex="0"><code>- [x] 写完这一篇
+- [ ] 校一遍错字
+- [ ] 挑一个安静的下午发布
+</code></pre><h2 id="链接">链接</h2>
+<p>给文字加上去处。渲染效果：</p>
+<p><a href="https://dimverge.github.io/">微隅的档案</a></p>
+<p>写法：</p>
+<pre tabindex="0"><code>[微隅的档案](https://dimverge.github.io/)
+</code></pre><h2 id="图片">图片</h2>
+<p>插图用图片语法，方括号里写的是无法显示时的说明。渲染效果（站内现用图标）：</p>
+<p><img src="/favicon.svg" alt="微隅站标"></p>
+<p>写法：</p>
+<pre tabindex="0"><code>![微隅站标](/favicon.svg)
+</code></pre><h2 id="表格">表格</h2>
+<p>需要对照的信息可以用表格，冒号控制对齐。渲染效果：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">季节</th>
+          <th style="text-align: center">月份</th>
+          <th style="text-align: right">光线</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">春</td>
+          <td style="text-align: center">三—五月</td>
+          <td style="text-align: right">明亮</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">秋</td>
+          <td style="text-align: center">九—十一月</td>
+          <td style="text-align: right">柔和</td>
+      </tr>
+  </tbody>
+</table>
+<p>写法：</p>
+<pre tabindex="0"><code>| 季节 | 月份 | 光线 |
+| :--- | :---: | ---: |
+| 春 | 三—五月 | 明亮 |
+| 秋 | 九—十一月 | 柔和 |
+</code></pre><h2 id="删除线">删除线</h2>
+<p>写错或作废的话，可以划掉而不是删掉。渲染效果：</p>
+<p><del>这句话已经作废</del></p>
+<p>写法：</p>
+<pre tabindex="0"><code>~~这句话已经作废~~
+</code></pre><h2 id="代码块与语言标注">代码块与语言标注</h2>
+<p>独立成块的代码用三个反引号包裹，可以标注语言；行内代码只用一个反引号。渲染效果：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;quietly&#34;</span>)
+</span></span></code></pre></div><p>写法（三个反引号包裹，开头标注语言）：</p>
+<pre><code>```python
+print(&quot;quietly&quot;)
+```
+</code></pre>
+<h2 id="脚注">脚注</h2>
+<p>需要补一句注脚时，用脚注语法，注释会收在文末。渲染效果：</p>
+<p>这是正文里的句子，带着一个注脚<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+<p>写法：</p>
+<pre tabindex="0"><code>这是正文里的句子[^1]。
+
+[^1]: 注脚的内容，写在文末。
 </code></pre><h2 id="分隔线">分隔线</h2>
-<p>想在两个小节之间停顿一下，可以用一条分隔线：</p>
+<p>想在两个小节之间停顿一下，可以用一条分隔线。渲染效果：</p>
+<hr>
+<p>写法：</p>
 <pre tabindex="0"><code>---
+</code></pre><h2 id="转义">转义</h2>
+<p>偶尔需要让符号按字面显示，用反斜杠转义。渲染效果：</p>
+<p>* 不是强调的开始。</p>
+<p>写法：</p>
+<pre tabindex="0"><code>\* 不是强调的开始。
 </code></pre><p>以上就是全部写法，祝写作愉快。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>注脚的内容，写在文末。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
 
           </div>
 

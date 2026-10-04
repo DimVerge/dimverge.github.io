@@ -333,6 +333,35 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   border:none;height:1px;width:56px;background:var(--line);
   margin:2.6em auto;
 }
+.article-body img{
+  max-width:min(140px,60%);
+  height:auto;
+  display:block;
+  margin:1.4em 0 1.8em;
+}
+.article-body table{
+  width:100%;max-width:40em;
+  border-collapse:collapse;
+  margin:1.5em 0 2.1em;
+  font-size:14.5px;
+}
+.article-body th{
+  text-align:left;
+  font-weight:600;
+  color:var(--accent);
+  letter-spacing:.1em;
+  font-size:12px;
+  padding:.6em .9em;
+  border-bottom:2px solid var(--accent);
+  white-space:nowrap;
+}
+.article-body td{
+  padding:.5em .9em;
+  border-bottom:1px solid var(--line);
+  color:#333336;
+  font-weight:300;
+}
+.article-body tr:last-child td{border-bottom:none}
 .article-end{
   text-align:center;color:var(--faint);
   font-size:11px;letter-spacing:.5em;margin:72px 0 0;padding-left:.5em;

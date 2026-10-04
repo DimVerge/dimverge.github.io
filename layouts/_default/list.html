@@ -18,11 +18,14 @@
       {{ else }}
         {{ $pag := "" }}
         {{ if eq .Section "home" }}
-          {{ $all := sort (where site.RegularPages "Section" "in" (slice "essays" "serial")) "Date" "desc" }}
+          {{ $all := sort (where site.RegularPages "Section" "in" (slice "essays" "fragments" "serial")) "Date" "desc" }}
           {{ $pag = .Paginate $all }}
         {{ else if eq .Section "essays" }}
           {{ $essays := sort (where site.RegularPages "Section" "essays") "Date" "desc" }}
           {{ $pag = .Paginate $essays }}
+        {{ else if eq .Section "fragments" }}
+          {{ $frags := sort (where site.RegularPages "Section" "fragments") "Date" "desc" }}
+          {{ $pag = .Paginate $frags }}
         {{ else }}
           {{ $works := sort .Sections ".Params.weight" "asc" }}
           {{ $pag = .Paginate $works 1 }}

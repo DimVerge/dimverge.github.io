@@ -1,13 +1,13 @@
 {{ $page := .ctx }}
 {{ $pag := .pag }}
 {{ if eq $page.Section "home" }}
-  {{ $all := sort (where site.RegularPages "Section" "in" (slice "essays" "serial")) "Date" "desc" }}
+  {{ $all := sort (where site.RegularPages "Section" "in" (slice "essays" "fragments" "serial")) "Date" "desc" }}
   {{ $latest := index $all 0 }}
   <div class="list-label">全部 · ALL · {{ printf "%02d" (len $all) }} 篇</div>
   {{ range $pag.Pages }}
     <a class="entry entry--compact" href="{{ .Permalink }}">
       <div>
-        <div class="entry-meta"><span class="entry-tag">{{ if eq .Section "serial" }}连载{{ else }}随笔{{ end }}</span><span>{{ .Date.Format "2006.01.02" }}</span></div>
+        <div class="entry-meta"><span class="entry-tag">{{ if eq .Section "serial" }}连载{{ else if eq .Section "fragments" }}片段{{ else }}随笔{{ end }}</span><span>{{ .Date.Format "2006.01.02" }}</span></div>
         <div class="entry-title">{{ if .Params.work }}{{ .Params.work }} · {{ end }}{{ .Title }}{{ if eq .Permalink $latest.Permalink }}<span class="new-badge" aria-label="新"></span>{{ end }}</div>
       </div>
     </a>
@@ -20,6 +20,18 @@
     <a class="entry entry--compact" href="{{ .Permalink }}">
       <div>
         <div class="entry-meta"><span class="entry-tag">随笔</span><span>{{ .Date.Format "2006.01.02" }}</span></div>
+        <div class="entry-title">{{ .Title }}{{ if eq .Permalink $latest.Permalink }}<span class="new-badge" aria-label="新"></span>{{ end }}</div>
+      </div>
+    </a>
+  {{ end }}
+{{ else if eq $page.Section "fragments" }}
+  {{ $frags := sort (where site.RegularPages "Section" "fragments") "Date" "desc" }}
+  {{ $latest := index $frags 0 }}
+  <div class="list-label">片段 · FRAGMENTS · {{ printf "%02d" (len $frags) }} 篇</div>
+  {{ range $pag.Pages }}
+    <a class="entry entry--compact" href="{{ .Permalink }}">
+      <div>
+        <div class="entry-meta"><span class="entry-tag">片段</span><span>{{ .Date.Format "2006.01.02" }}</span></div>
         <div class="entry-title">{{ .Title }}{{ if eq .Permalink $latest.Permalink }}<span class="new-badge" aria-label="新"></span>{{ end }}</div>
       </div>
     </a>

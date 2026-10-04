@@ -15,6 +15,9 @@
           {{ if eq .Section "serial" }}
             <span class="entry-tag">连载</span>
             <a class="article-crumb" href="/serial/">《{{ .CurrentSection.Title }}》</a>
+          {{ else if eq .Section "fragments" }}
+            <span class="entry-tag">片段</span>
+            <span class="article-crumb">片段 · Fragments</span>
           {{ else }}
             <span class="entry-tag">随笔</span>
             <span class="article-crumb">随笔 · Essays</span>
@@ -46,6 +49,11 @@
         {{ $i := 0 }}{{ range $idx, $p := $chs }}{{ if eq $p.Permalink $.Permalink }}{{ $i = $idx }}{{ end }}{{ end }}
         {{ if gt $i 0 }}{{ $prev = index $chs (sub $i 1) }}{{ end }}
         {{ if lt $i (sub (len $chs) 1) }}{{ $next = index $chs (add $i 1) }}{{ end }}
+      {{ else if eq .Section "fragments" }}
+        {{ $frags := sort (where site.RegularPages "Section" "fragments") ".Date" "desc" }}
+        {{ $i := 0 }}{{ range $idx, $p := $frags }}{{ if eq $p.Permalink $.Permalink }}{{ $i = $idx }}{{ end }}{{ end }}
+        {{ if gt $i 0 }}{{ $prev = index $frags (sub $i 1) }}{{ end }}
+        {{ if lt $i (sub (len $frags) 1) }}{{ $next = index $frags (add $i 1) }}{{ end }}
       {{ else }}
         {{ $ess := sort (where site.RegularPages "Section" "essays") ".Date" "desc" }}
         {{ $i := 0 }}{{ range $idx, $p := $ess }}{{ if eq $p.Permalink $.Permalink }}{{ $i = $idx }}{{ end }}{{ end }}

@@ -260,6 +260,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   font-size:15.5px;font-weight:300;line-height:1.85;color:#333336;
   margin-bottom:1.4em;max-width:40em;
   text-indent:2em;   /* 段首缩进两字 */
+  text-align:justify; /* 两端对齐 */
 }
 .article-body .epigraph{
   font-family:var(--serif);
@@ -291,7 +292,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   font-size:14.5px;font-weight:300;color:var(--gray);
   line-height:1.95;letter-spacing:.02em;
 }
-.article-body blockquote p{text-indent:0;margin:0;color:inherit}
+.article-body blockquote p{text-indent:0;margin:0;color:inherit;text-align:justify}
 .article-body strong{font-weight:500;color:var(--ink)}
 .article-body em{font-style:italic;color:var(--gray)}
 .article-body code{
@@ -318,6 +319,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .article-body ul li{
   position:relative;padding-left:1.25em;margin-bottom:.55em;
   font-size:15px;font-weight:300;line-height:1.85;color:#333336;
+  text-align:justify;
 }
 .article-body ul li::before{
   content:"";position:absolute;left:.15em;top:.72em;
@@ -327,6 +329,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .article-body ol li{
   font-size:15px;font-weight:300;line-height:1.85;color:#333336;
   margin-bottom:.55em;padding-left:.35em;
+  text-align:justify;
 }
 .article-body ol li::marker{color:var(--gray);font-weight:400}
 .article-body hr{

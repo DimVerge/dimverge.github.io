@@ -3,3 +3,5 @@ hugo server -D.txt
 .hugo_build.lock
 public/
 .vscode/
+推送.txt
+新增文章和新增修改主题指令.md

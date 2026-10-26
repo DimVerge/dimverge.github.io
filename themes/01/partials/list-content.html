@@ -1,0 +1,46 @@
+{{ $page := .ctx }}
+{{ $pag := .pag }}
+{{ if eq $page.Section "home" }}
+  {{ $all := sort (where site.RegularPages "Section" "in" (slice "essays" "fragments" "serial")) "Date" "desc" }}
+  {{ $latest := index $all 0 }}
+  <div class="list-label">全部 · ALL · {{ printf "%02d" (len $all) }} 篇</div>
+  {{ range $pag.Pages }}
+    <a class="entry entry--compact" href="{{ .Permalink }}">
+      <div>
+        <div class="entry-meta"><span class="entry-tag">{{ if eq .Section "serial" }}连载{{ else if eq .Section "fragments" }}片段{{ else }}随笔{{ end }}</span><span>{{ .Date.Format "2006.01.02" }}</span></div>
+        <div class="entry-title">{{ if .Params.work }}{{ .Params.work }} · {{ end }}{{ .Title }}{{ if eq .Permalink $latest.Permalink }}<span class="new-badge" aria-label="新"></span>{{ end }}</div>
+      </div>
+    </a>
+  {{ end }}
+{{ else if eq $page.Section "essays" }}
+  {{ $essays := sort (where site.RegularPages "Section" "essays") "Date" "desc" }}
+  {{ $latest := index $essays 0 }}
+  <div class="list-label">随笔 · ESSAYS · {{ printf "%02d" (len $essays) }} 篇</div>
+  {{ range $pag.Pages }}
+    <a class="entry entry--compact" href="{{ .Permalink }}">
+      <div>
+        <div class="entry-meta"><span class="entry-tag">随笔</span><span>{{ .Date.Format "2006.01.02" }}</span></div>
+        <div class="entry-title">{{ .Title }}{{ if eq .Permalink $latest.Permalink }}<span class="new-badge" aria-label="新"></span>{{ end }}</div>
+      </div>
+    </a>
+  {{ end }}
+{{ else if eq $page.Section "fragments" }}
+  {{ $frags := sort (where site.RegularPages "Section" "fragments") "Date" "desc" }}
+  {{ $latest := index $frags 0 }}
+  <div class="list-label">片段 · FRAGMENTS · {{ printf "%02d" (len $frags) }} 篇</div>
+  {{ range $pag.Pages }}
+    <a class="entry entry--compact" href="{{ .Permalink }}">
+      <div>
+        <div class="entry-meta"><span class="entry-tag">片段</span><span>{{ .Date.Format "2006.01.02" }}</span></div>
+        <div class="entry-title">{{ .Title }}{{ if eq .Permalink $latest.Permalink }}<span class="new-badge" aria-label="新"></span>{{ end }}</div>
+      </div>
+    </a>
+  {{ end }}
+{{ else }}
+  {{ $works := sort $page.Sections ".Params.weight" "asc" }}
+  {{ $ch := 0 }}{{ range $works }}{{ $ch = add $ch (len .RegularPages) }}{{ end }}
+  <div class="list-label">连载 · SERIAL · {{ printf "%02d" (len $works) }} 部 · {{ printf "%02d" $ch }} 章</div>
+  {{ range $pag.Pages }}
+    {{ partial "work-group.html" (dict "work" .) }}
+  {{ end }}
+{{ end }}

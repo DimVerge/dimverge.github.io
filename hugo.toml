@@ -18,4 +18,4 @@ disableKinds = ["taxonomy", "term"]
     [markup.goldmark.renderer]
       unsafe = false
 
-
+theme = "01"
